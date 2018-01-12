@@ -1,0 +1,55 @@
+<div class="container-fluid p-5 m-5">
+  <div class="row">
+    <div class="col-xs-9">
+      <h1>Informações de compra</h1>
+    </div>
+    <div class="col-xs-3">
+      <%= link_to "+ Novo Arquivo", new_purchase_info_path, :class => "btn btn-default pull-right header-button mr-5 text-white" %>
+    </div>
+    <% if flash[:notice] %>
+      <div class="alert alert-success">
+        <b>Concluído!</b>
+        Registro modificado com
+        <b>sucesso!</b>
+      </div>
+    <% end %>
+    <div class="users">
+      <table class="col-xs-12 table table-condensed">
+        <thead>
+          <tr>
+            <th>Nome do comprador</th>
+            <th>Descrição do item</th>
+            <th>Preço do item</th>
+            <th>Numero de compras</th>
+            <th>Endereço do comerciante</th>
+            <th>Nome do comerciante</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @purchase_infos.each do |purchase_info| %>
+          <tr>
+            <td><%= purchase_info.purchaser_name %></td>
+            <td><%= purchase_info.item_description %></td>
+            <td><%= purchase_info.item_price %></td>
+            <td><%= purchase_info.purchase_count %></td>
+            <td><%= purchase_info.merchant_address %></td>
+            <td><%= purchase_info.merchant_name %></td>
+            <td>
+              <%= link_to "Exibir", purchase_info, :class => "btn btn-white" %>
+              <%= link_to "Editar", edit_purchase_info_path(purchase_info), :class => "btn btn-white" %>
+              <%= link_to "Excluir", purchase_info, data: { :confirm => 'Are you sure?'}, :method => :delete, :class => "btn btn-default" %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <% if @purchase_infos %>
+        <span class="font-weight-bold">Valor total:</span>
+        <%= @total_price %>
+        <span class="font-weight-bold ml-5">Total de compras:</span>
+        <%= @total_purchases %>
+      <% end %>
+    </div>
+  </div>
+</div>

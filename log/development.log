@@ -4,3 +4,2801 @@ Started GET "/" for 127.0.0.1 at 2018-01-11 19:21:04 -0200
 Processing by Rails::WelcomeController#index as HTML
   Rendered /home/lucas/.rvm/gems/ruby-2.2.5/gems/railties-4.1.2/lib/rails/templates/rails/welcome/index.html.erb (1.2ms)
 Completed 200 OK in 12ms (Views: 5.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (12.7ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreatePurchaseInfos (20180111220507)
+  [1m[35m (3.3ms)[0m  CREATE TABLE `purchase_infos` (`id` int(11) auto_increment PRIMARY KEY, `purchaser_name` varchar(255), `item_description` varchar(255), `item_price` float, `purchase_count` int(11), `merchant_address` varchar(255), `merchant_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20180111220507')
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'programmingChallenge'
+  AND fk.table_name = 'purchase_infos'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `purchase_infos`
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-11 20:07:13 -0200
+
+LoadError (cannot load such file -- /home/lucas/rails/desafio-programacao-1-cca8a4847cdbde38cf6323aa6959fc1825ac7397/config/routes.rb):
+  activesupport (4.1.2) lib/active_support/dependencies.rb:241:in `load'
+  activesupport (4.1.2) lib/active_support/dependencies.rb:241:in `block in load'
+  activesupport (4.1.2) lib/active_support/dependencies.rb:232:in `load_dependency'
+  activesupport (4.1.2) lib/active_support/dependencies.rb:241:in `load'
+  railties (4.1.2) lib/rails/application/routes_reloader.rb:40:in `block in load_paths'
+  railties (4.1.2) lib/rails/application/routes_reloader.rb:40:in `each'
+  railties (4.1.2) lib/rails/application/routes_reloader.rb:40:in `load_paths'
+  railties (4.1.2) lib/rails/application/routes_reloader.rb:16:in `reload!'
+  railties (4.1.2) lib/rails/application/routes_reloader.rb:26:in `block in updater'
+  activesupport (4.1.2) lib/active_support/file_update_checker.rb:75:in `call'
+  activesupport (4.1.2) lib/active_support/file_update_checker.rb:75:in `execute'
+  railties (4.1.2) lib/rails/application/routes_reloader.rb:7:in `execute'
+  railties (4.1.2) lib/rails/application/finisher.rb:83:in `block (2 levels) in <module:Finisher>'
+  activesupport (4.1.2) lib/active_support/callbacks.rb:438:in `instance_exec'
+  activesupport (4.1.2) lib/active_support/callbacks.rb:438:in `block in make_lambda'
+  activesupport (4.1.2) lib/active_support/callbacks.rb:184:in `call'
+  activesupport (4.1.2) lib/active_support/callbacks.rb:184:in `block in simple'
+  activesupport (4.1.2) lib/active_support/callbacks.rb:185:in `call'
+  activesupport (4.1.2) lib/active_support/callbacks.rb:185:in `block in simple'
+  activesupport (4.1.2) lib/active_support/callbacks.rb:185:in `call'
+  activesupport (4.1.2) lib/active_support/callbacks.rb:185:in `block in simple'
+  activesupport (4.1.2) lib/active_support/callbacks.rb:86:in `call'
+  activesupport (4.1.2) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.2) lib/action_dispatch/middleware/reloader.rb:83:in `prepare!'
+  actionpack (4.1.2) lib/action_dispatch/middleware/reloader.rb:71:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.2) lib/rails/engine.rb:514:in `call'
+  railties (4.1.2) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /home/lucas/.rvm/rubies/ruby-2.2.5/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/lucas/.rvm/rubies/ruby-2.2.5/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/lucas/.rvm/rubies/ruby-2.2.5/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.5/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.5/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.7ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.5/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.5/gems/actionpack-4.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-11 20:07:37 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/railties-4.2.7/lib/rails/templates/rails/welcome/index.html.erb (0.9ms)
+Completed 200 OK in 11ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-11 20:08:52 -0200
+DEPRECATION WARNING: Defining a route where `to` is a controller without an action is deprecated. Please change `to: 'purchase_infos:index'` to `controller: 'purchase_infos:index'`. (called from block in <top (required)> at /home/lucas/rails/desafio-programacao-1/config/routes.rb:4)
+
+ArgumentError ('purchase_infos:index' is not a supported controller name. This can lead to potential routing problems. See http://guides.rubyonrails.org/routing.html#specifying-a-controller-to-use):
+  config/routes.rb:4:in `block in <top (required)>'
+  config/routes.rb:1:in `<top (required)>'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.7ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (15.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-11 20:09:40 -0200
+DEPRECATION WARNING: Defining a route where `to` is a controller without an action is deprecated. Please change `to: 'purchaseInfos:index'` to `controller: 'purchaseInfos:index'`. (called from block in <top (required)> at /home/lucas/rails/desafio-programacao-1/config/routes.rb:4)
+
+ArgumentError ('purchaseInfos:index' is not a supported controller name. This can lead to potential routing problems. See http://guides.rubyonrails.org/routing.html#specifying-a-controller-to-use):
+  config/routes.rb:4:in `block in <top (required)>'
+  config/routes.rb:1:in `<top (required)>'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.9ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.5ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (14.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-11 20:10:04 -0200
+DEPRECATION WARNING: Defining a route where `to` is a symbol is deprecated. Please change `to: :purchase_infos` to `action: :purchase_infos`. (called from block in <top (required)> at /home/lucas/rails/desafio-programacao-1/config/routes.rb:4)
+
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  config/routes.rb:4:in `block in <top (required)>'
+  config/routes.rb:1:in `<top (required)>'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.5ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (13.8ms)
+DEPRECATION WARNING: Defining a route where `to` is a symbol is deprecated. Please change `to: :purchase_infos` to `action: :purchase_infos`. (called from block in <top (required)> at /home/lucas/rails/desafio-programacao-1/config/routes.rb:4)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-11 20:11:03 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[35mPurchaseInfo Load (0.2ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  Rendered purchase_infos/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 237ms (Views: 235.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-11 20:11:03 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-11 20:11:03 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-11 20:11:03 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-11 20:11:03 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-11 20:11:03 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-11 20:11:03 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-11 20:11:03 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-11 20:11:03 -0200
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-11 20:11:12 -0200
+Processing by PurchaseInfosController#new as HTML
+  Rendered purchase_infos/_form.html.erb (14.6ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 55ms (Views: 46.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-11 20:25:04 -0200
+Processing by PurchaseInfosController#new as HTML
+  Rendered purchase_infos/_form.html.erb (5.9ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 41ms (Views: 40.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-11 20:25:04 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-11 20:25:04 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-11 20:25:04 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-11 20:25:04 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-11 20:25:04 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-11 20:25:04 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-11 20:25:04 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-11 20:25:04 -0200
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-11 20:28:31 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by PurchaseInfosController#new as HTML
+  Rendered purchase_infos/_form.html.erb (17.8ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (21.3ms)
+Completed 200 OK in 102ms (Views: 89.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-11 20:28:31 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-11 20:28:31 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-11 20:28:31 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-11 20:28:31 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-11 20:28:31 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-11 20:28:31 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-11 20:28:31 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-11 20:28:31 -0200
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-11 20:28:40 -0200
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GnEissA84v1493lzqKIzgzTxPtN15ePqyWC1QsqvT4GbZVY5LFQQ0LEDb+vSTeLjbf+1Y6D/07CeOsn6R7uOow==", "purchase_info"=>{"purchaser_name"=>"", "item_description"=>"", "item_price"=>"", "purchase_count"=>"", "merchant_address"=>"", "merchant_name"=>"", "temp_file"=>#<ActionDispatch::Http::UploadedFile:0x00000004c88cb0 @tempfile=#<Tempfile:/tmp/RackMultipart20180111-11659-1ybr6kw.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase_info[temp_file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Create Purchase info"}
+Unpermitted parameter: temp_file
+Unpermitted parameter: temp_file
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('', '', '', '', '2018-01-11 22:30:09', '2018-01-11 22:30:09')[0m
+  [1m[35m (3.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/purchase_infos/1
+Completed 302 Found in 89275ms (ActiveRecord: 3.5ms)
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-11 20:30:09 -0200
+Processing by PurchaseInfosController#new as HTML
+  Rendered purchase_infos/_form.html.erb (2.5ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 29ms (Views: 23.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-11 20:30:14 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by PurchaseInfosController#new as HTML
+  Rendered purchase_infos/_form.html.erb (16.7ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 102ms (Views: 87.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-11 20:30:14 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-11 20:30:14 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-11 20:30:14 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-11 20:30:14 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-11 20:30:14 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-11 20:30:14 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-11 20:30:14 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-11 20:30:14 -0200
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-11 20:30:16 -0200
+Processing by PurchaseInfosController#new as HTML
+  Rendered purchase_infos/_form.html.erb (2.4ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 23ms (Views: 22.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-11 20:30:16 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-11 20:30:16 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-11 20:30:16 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-11 20:30:16 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-11 20:30:16 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-11 20:30:16 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-11 20:30:16 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-11 20:30:16 -0200
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-11 20:30:28 -0200
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oP+LQcO19pxXAm7zoRRuytLPkTdbMe5ZOB6YcbCLtd0h6//KL90EsZ72eGvb+7+qi8Eah44r3gNvROTJPZ90/w==", "purchase_info"=>{"purchaser_name"=>"", "item_description"=>"", "item_price"=>"", "purchase_count"=>"", "merchant_address"=>"", "merchant_name"=>"", "temp_file"=>#<ActionDispatch::Http::UploadedFile:0x000000029a2110 @tempfile=#<Tempfile:/tmp/RackMultipart20180111-11820-1ybgjo7.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase_info[temp_file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Create Purchase info"}
+Completed 500 Internal Server Error in 612517ms (ActiveRecord: 0.0ms)
+
+ActiveRecord::UnknownAttributeError (unknown attribute 'temp_file' for PurchaseInfo.):
+  app/controllers/purchase_infos_controller.rb:28:in `create'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.9ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (17.8ms)
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-11 20:41:24 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oP+LQcO19pxXAm7zoRRuytLPkTdbMe5ZOB6YcbCLtd0h6//KL90EsZ72eGvb+7+qi8Eah44r3gNvROTJPZ90/w==", "purchase_info"=>{"purchaser_name"=>"", "item_description"=>"", "item_price"=>"", "purchase_count"=>"", "merchant_address"=>"", "merchant_name"=>"", "temp_file"=>#<ActionDispatch::Http::UploadedFile:0x000000042aca70 @tempfile=#<Tempfile:/tmp/RackMultipart20180111-12583-1b6asiq.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase_info[temp_file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Create Purchase info"}
+Completed 500 Internal Server Error in 238634ms (ActiveRecord: 0.6ms)
+
+ActiveRecord::UnknownAttributeError (unknown attribute 'temp_file' for PurchaseInfo.):
+  app/controllers/purchase_infos_controller.rb:29:in `create'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.2ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.5ms)
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-11 20:45:32 -0200
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oP+LQcO19pxXAm7zoRRuytLPkTdbMe5ZOB6YcbCLtd0h6//KL90EsZ72eGvb+7+qi8Eah44r3gNvROTJPZ90/w==", "purchase_info"=>{"purchaser_name"=>"", "item_description"=>"", "item_price"=>"", "purchase_count"=>"", "merchant_address"=>"", "merchant_name"=>"", "temp_file"=>#<ActionDispatch::Http::UploadedFile:0x00000003e4b260 @tempfile=#<Tempfile:/tmp/RackMultipart20180111-12583-rv33vi.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase_info[temp_file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Create Purchase info"}
+Completed 500 Internal Server Error in 14444ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `parse_data' for #<PurchaseInfosController:0x00000003e61380>):
+  app/controllers/purchase_infos_controller.rb:31:in `create'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.3ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (20.2ms)
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-11 20:45:50 -0200
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oP+LQcO19pxXAm7zoRRuytLPkTdbMe5ZOB6YcbCLtd0h6//KL90EsZ72eGvb+7+qi8Eah44r3gNvROTJPZ90/w==", "purchase_info"=>{"purchaser_name"=>"", "item_description"=>"", "item_price"=>"", "purchase_count"=>"", "merchant_address"=>"", "merchant_name"=>"", "temp_file"=>#<ActionDispatch::Http::UploadedFile:0x00000003e484c0 @tempfile=#<Tempfile:/tmp/RackMultipart20180111-12583-e6yfmq.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase_info[temp_file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Create Purchase info"}
+Completed 500 Internal Server Error in 973235ms (ActiveRecord: 0.7ms)
+
+NoMethodError (undefined method `parse_data' for #<PurchaseInfosController:0x00000003e49960>):
+  app/controllers/purchase_infos_controller.rb:31:in `create'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.5ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (20.2ms)
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-11 21:02:26 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by PurchaseInfosController#new as HTML
+  Rendered purchase_infos/_form.html.erb (15.4ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 95ms (Views: 79.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-11 21:02:26 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-11 21:02:26 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-11 21:02:26 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-11 21:02:26 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-11 21:02:26 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-11 21:02:26 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-11 21:02:26 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-11 21:02:26 -0200
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-11 21:02:34 -0200
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AEVLcI65sHiOZcNHjUGL4JhitwwNnBS/M99b/AQSiLaBUT/7YtFCVUeR1d/3rlqAwWw8vNiGJOVkhSdEiQZJlA==", "purchase_info"=>{"purchaser_name"=>"", "item_description"=>"", "item_price"=>"", "purchase_count"=>"", "merchant_address"=>"", "merchant_name"=>"", "temp_file"=>#<ActionDispatch::Http::UploadedFile:0x00000004269a18 @tempfile=#<Tempfile:/tmp/RackMultipart20180111-13306-1gdu5pc.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase_info[temp_file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Create Purchase info"}
+Completed 500 Internal Server Error in 20210ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `each_lines' for #<String:0x00000003e83778>):
+  app/controllers/purchase_infos_controller.rb:25:in `parse_data'
+  app/controllers/purchase_infos_controller.rb:42:in `create'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (16.5ms)
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-11 21:03:25 -0200
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AEVLcI65sHiOZcNHjUGL4JhitwwNnBS/M99b/AQSiLaBUT/7YtFCVUeR1d/3rlqAwWw8vNiGJOVkhSdEiQZJlA==", "purchase_info"=>{"purchaser_name"=>"", "item_description"=>"", "item_price"=>"", "purchase_count"=>"", "merchant_address"=>"", "merchant_name"=>"", "temp_file"=>#<ActionDispatch::Http::UploadedFile:0x00000004077700 @tempfile=#<Tempfile:/tmp/RackMultipart20180111-13306-dndo3m.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase_info[temp_file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Create Purchase info"}
+Completed 500 Internal Server Error in 36310ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `each_lines' for #<String:0x00000004010ff0>):
+  app/controllers/purchase_infos_controller.rb:26:in `parse_data'
+  app/controllers/purchase_infos_controller.rb:42:in `create'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.8ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (14.3ms)
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-11 21:04:04 -0200
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AEVLcI65sHiOZcNHjUGL4JhitwwNnBS/M99b/AQSiLaBUT/7YtFCVUeR1d/3rlqAwWw8vNiGJOVkhSdEiQZJlA==", "purchase_info"=>{"purchaser_name"=>"", "item_description"=>"", "item_price"=>"", "purchase_count"=>"", "merchant_address"=>"", "merchant_name"=>"", "temp_file"=>#<ActionDispatch::Http::UploadedFile:0x00000004216db8 @tempfile=#<Tempfile:/tmp/RackMultipart20180111-13306-i27kwh.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase_info[temp_file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Create Purchase info"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:04:06', '2018-01-11 23:04:06')[0m
+  [1m[35m (1.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:04:06', '2018-01-11 23:04:06')
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:04:06', '2018-01-11 23:04:06')[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:04:06', '2018-01-11 23:04:06')
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:04:06', '2018-01-11 23:04:06')[0m
+  [1m[35m (1.4ms)[0m  COMMIT
+  [1m[36mPurchaseInfo Load (0.3ms)[0m  [1mSELECT  `purchase_infos`.* FROM `purchase_infos`  ORDER BY `purchase_infos`.`id` DESC LIMIT 1[0m
+  [1m[35mPurchaseInfo Load (0.2ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+Completed 500 Internal Server Error in 75219ms (ActiveRecord: 11.8ms)
+
+NoMethodError (undefined method `save' for nil:NilClass):
+  app/controllers/purchase_infos_controller.rb:48:in `block in create'
+  app/controllers/purchase_infos_controller.rb:47:in `create'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.3ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (15.4ms)
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-11 21:05:24 -0200
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AEVLcI65sHiOZcNHjUGL4JhitwwNnBS/M99b/AQSiLaBUT/7YtFCVUeR1d/3rlqAwWw8vNiGJOVkhSdEiQZJlA==", "purchase_info"=>{"purchaser_name"=>"", "item_description"=>"", "item_price"=>"", "purchase_count"=>"", "merchant_address"=>"", "merchant_name"=>"", "temp_file"=>#<ActionDispatch::Http::UploadedFile:0x00000003b5b168 @tempfile=#<Tempfile:/tmp/RackMultipart20180111-13306-wnwtuy.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase_info[temp_file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Create Purchase info"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:06:22', '2018-01-11 23:06:22')
+  [1m[36m (3.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:06:23', '2018-01-11 23:06:23')[0m
+  [1m[35m (1.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:07:08', '2018-01-11 23:07:08')
+  [1m[36m (3.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:07:09', '2018-01-11 23:07:09')[0m
+  [1m[35m (2.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:07:11', '2018-01-11 23:07:11')
+  [1m[36m (2.8ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 110774ms (ActiveRecord: 15.9ms)
+
+NoMethodError (undefined method `save' for nil:NilClass):
+  app/controllers/purchase_infos_controller.rb:49:in `block in create'
+  app/controllers/purchase_infos_controller.rb:48:in `create'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.3ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (17.1ms)
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-11 21:10:15 -0200
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AEVLcI65sHiOZcNHjUGL4JhitwwNnBS/M99b/AQSiLaBUT/7YtFCVUeR1d/3rlqAwWw8vNiGJOVkhSdEiQZJlA==", "purchase_info"=>{"purchaser_name"=>"", "item_description"=>"", "item_price"=>"", "purchase_count"=>"", "merchant_address"=>"", "merchant_name"=>"", "temp_file"=>#<ActionDispatch::Http::UploadedFile:0x000000040bea88 @tempfile=#<Tempfile:/tmp/RackMultipart20180111-13306-1ev2dq2.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase_info[temp_file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Create Purchase info"}
+Completed 500 Internal Server Error in 3354ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `each_line_with_index' for #<String:0x0000000409b678>):
+  app/controllers/purchase_infos_controller.rb:26:in `parse_data'
+  app/controllers/purchase_infos_controller.rb:46:in `create'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.3ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (16.2ms)
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-11 21:10:33 -0200
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AEVLcI65sHiOZcNHjUGL4JhitwwNnBS/M99b/AQSiLaBUT/7YtFCVUeR1d/3rlqAwWw8vNiGJOVkhSdEiQZJlA==", "purchase_info"=>{"purchaser_name"=>"", "item_description"=>"", "item_price"=>"", "purchase_count"=>"", "merchant_address"=>"", "merchant_name"=>"", "temp_file"=>#<ActionDispatch::Http::UploadedFile:0x00000004594648 @tempfile=#<Tempfile:/tmp/RackMultipart20180111-13306-14jzcl6.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase_info[temp_file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Create Purchase info"}
+Completed 500 Internal Server Error in 42017ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `each_line_with_index' for #<String:0x00000004562e40>):
+  app/controllers/purchase_infos_controller.rb:26:in `parse_data'
+  app/controllers/purchase_infos_controller.rb:46:in `create'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (16.0ms)
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-11 21:11:20 -0200
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AEVLcI65sHiOZcNHjUGL4JhitwwNnBS/M99b/AQSiLaBUT/7YtFCVUeR1d/3rlqAwWw8vNiGJOVkhSdEiQZJlA==", "purchase_info"=>{"purchaser_name"=>"", "item_description"=>"", "item_price"=>"", "purchase_count"=>"", "merchant_address"=>"", "merchant_name"=>"", "temp_file"=>#<ActionDispatch::Http::UploadedFile:0x00000004721218 @tempfile=#<Tempfile:/tmp/RackMultipart20180111-13306-ywymvs.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase_info[temp_file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Create Purchase info"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:11:45', '2018-01-11 23:11:45')[0m
+  [1m[35m (2.9ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:11:45', '2018-01-11 23:11:45')
+  [1m[36m (2.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:11:46', '2018-01-11 23:11:46')[0m
+  [1m[35m (3.0ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:11:47', '2018-01-11 23:11:47')
+  [1m[36m (2.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:11:47', '2018-01-11 23:11:47')[0m
+  [1m[35m (1.6ms)[0m  COMMIT
+Completed 500 Internal Server Error in 29590ms (ActiveRecord: 15.2ms)
+
+NoMethodError (undefined method `save' for nil:NilClass):
+  app/controllers/purchase_infos_controller.rb:54:in `block in create'
+  app/controllers/purchase_infos_controller.rb:53:in `create'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.3ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (15.7ms)
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-11 21:12:03 -0200
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AEVLcI65sHiOZcNHjUGL4JhitwwNnBS/M99b/AQSiLaBUT/7YtFCVUeR1d/3rlqAwWw8vNiGJOVkhSdEiQZJlA==", "purchase_info"=>{"purchaser_name"=>"", "item_description"=>"", "item_price"=>"", "purchase_count"=>"", "merchant_address"=>"", "merchant_name"=>"", "temp_file"=>#<ActionDispatch::Http::UploadedFile:0x0000000289d468 @tempfile=#<Tempfile:/tmp/RackMultipart20180111-13306-6qk9ed.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase_info[temp_file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Create Purchase info"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:12:12', '2018-01-11 23:12:12')
+  [1m[36m (3.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:12:13', '2018-01-11 23:12:13')[0m
+  [1m[35m (2.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:12:14', '2018-01-11 23:12:14')
+  [1m[36m (3.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:12:15', '2018-01-11 23:12:15')[0m
+  [1m[35m (2.8ms)[0m  COMMIT
+Completed 500 Internal Server Error in 15334ms (ActiveRecord: 14.0ms)
+
+NoMethodError (undefined method `save' for nil:NilClass):
+  app/controllers/purchase_infos_controller.rb:56:in `block in create'
+  app/controllers/purchase_infos_controller.rb:55:in `create'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (16.4ms)
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-11 21:13:38 -0200
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AEVLcI65sHiOZcNHjUGL4JhitwwNnBS/M99b/AQSiLaBUT/7YtFCVUeR1d/3rlqAwWw8vNiGJOVkhSdEiQZJlA==", "purchase_info"=>{"purchaser_name"=>"", "item_description"=>"", "item_price"=>"", "purchase_count"=>"", "merchant_address"=>"", "merchant_name"=>"", "temp_file"=>#<ActionDispatch::Http::UploadedFile:0x000000040eab60 @tempfile=#<Tempfile:/tmp/RackMultipart20180111-13306-8a4d5k.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase_info[temp_file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Create Purchase info"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:13:42', '2018-01-11 23:13:42')
+  [1m[36m (3.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:13:42', '2018-01-11 23:13:42')[0m
+  [1m[35m (1.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:13:42', '2018-01-11 23:13:42')
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:13:42', '2018-01-11 23:13:42')[0m
+  [1m[35m (1.4ms)[0m  COMMIT
+Redirected to 
+Completed 500 Internal Server Error in 5924ms (ActiveRecord: 8.8ms)
+
+NoMethodError (undefined method `new_url' for #<PurchaseInfosController:0x000000040f2360>):
+  app/controllers/purchase_infos_controller.rb:52:in `create'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.6ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (20.4ms)
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-11 21:14:14 -0200
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AEVLcI65sHiOZcNHjUGL4JhitwwNnBS/M99b/AQSiLaBUT/7YtFCVUeR1d/3rlqAwWw8vNiGJOVkhSdEiQZJlA==", "purchase_info"=>{"purchaser_name"=>"", "item_description"=>"", "item_price"=>"", "purchase_count"=>"", "merchant_address"=>"", "merchant_name"=>"", "temp_file"=>#<ActionDispatch::Http::UploadedFile:0x00000002900e78 @tempfile=#<Tempfile:/tmp/RackMultipart20180111-13306-1pjgylk.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase_info[temp_file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Create Purchase info"}
+  [1m[36mPurchaseInfo Load (0.2ms)[0m  [1mSELECT  `purchase_infos`.* FROM `purchase_infos`  ORDER BY `purchase_infos`.`id` DESC LIMIT 1[0m
+  [1m[35mPurchaseInfo Load (0.3ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 1
+  [1m[36m (3.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 2[0m
+  [1m[35m (1.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 3
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 4[0m
+  [1m[35m (4.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 5
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 6[0m
+  [1m[35m (1.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 7
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 8[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 9
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 10[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 11
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 12[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 13
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 14[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 15
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 16[0m
+  [1m[35m (1.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 17
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 18[0m
+  [1m[35m (1.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 19
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 20[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 21
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 22[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 23
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 24[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:14:27', '2018-01-11 23:14:27')
+  [1m[36m (3.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:14:27', '2018-01-11 23:14:27')[0m
+  [1m[35m (1.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:14:27', '2018-01-11 23:14:27')
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:14:27', '2018-01-11 23:14:27')[0m
+  [1m[35m (1.5ms)[0m  COMMIT
+  Rendered purchase_infos/_form.html.erb (0.5ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 14695ms (ActiveRecord: 46.8ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for(@purchase_info) do |f| %>
+    2:   <% if @purchase_info.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@purchase_info.errors.count, "error") %> prohibited this purchase_info from being saved:</h2>
+  app/views/purchase_infos/_form.html.erb:1:in `_app_views_purchase_infos__form_html_erb__413731338535859828_18146220'
+  app/views/purchase_infos/new.html.erb:3:in `_app_views_purchase_infos_new_html_erb___3884627684338082058_19257220'
+  app/controllers/purchase_infos_controller.rb:52:in `create'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (17.7ms)
+
+
+Started GET "/purchase_infos" for 127.0.0.1 at 2018-01-11 21:14:47 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[36mPurchaseInfo Load (0.2ms)[0m  [1mSELECT `purchase_infos`.* FROM `purchase_infos`[0m
+  Rendered purchase_infos/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 27ms (Views: 25.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-11 21:14:47 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-11 21:14:47 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-11 21:14:47 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-11 21:14:47 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-11 21:14:47 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-11 21:14:47 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-11 21:14:47 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-11 21:14:47 -0200
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-11 21:14:52 -0200
+Processing by PurchaseInfosController#new as HTML
+  Rendered purchase_infos/_form.html.erb (3.0ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 33ms (Views: 32.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-11 21:14:52 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-11 21:14:52 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-11 21:14:52 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-11 21:14:52 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-11 21:14:52 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-11 21:14:52 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-11 21:14:52 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-11 21:14:52 -0200
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-11 21:15:31 -0200
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"belLoLRABM9O1qwFZPxIXtA8zyxK1/q9aNX/UM/WXNns/T8rWCj24ociup0eE5k+iTJEnJ/Nyuc/j4PoQsKd+w==", "purchase_info"=>{"purchaser_name"=>"", "item_description"=>"", "item_price"=>"", "purchase_count"=>"", "merchant_address"=>"", "merchant_name"=>"", "temp_file"=>#<ActionDispatch::Http::UploadedFile:0x000000027b7e18 @tempfile=#<Tempfile:/tmp/RackMultipart20180111-13306-1yd6jl8.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase_info[temp_file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Create Purchase info"}
+  [1m[35mPurchaseInfo Load (0.1ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 25
+  [1m[36m (2.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 26[0m
+  [1m[35m (1.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 27
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 28[0m
+  [1m[35m (1.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:15:42', '2018-01-11 23:15:42')
+  [1m[36m (3.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:15:42', '2018-01-11 23:15:42')[0m
+  [1m[35m (1.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:15:42', '2018-01-11 23:15:42')
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:15:42', '2018-01-11 23:15:42')[0m
+  [1m[35m (1.7ms)[0m  COMMIT
+  Rendered purchase_infos/_form.html.erb (0.5ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 15393ms (ActiveRecord: 15.4ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for(@purchase_info) do |f| %>
+    2:   <% if @purchase_info.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@purchase_info.errors.count, "error") %> prohibited this purchase_info from being saved:</h2>
+  app/views/purchase_infos/_form.html.erb:1:in `_app_views_purchase_infos__form_html_erb__413731338535859828_18146220'
+  app/views/purchase_infos/new.html.erb:3:in `_app_views_purchase_infos_new_html_erb___3884627684338082058_19257220'
+  app/controllers/purchase_infos_controller.rb:52:in `create'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.3ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (16.3ms)
+
+
+Started GET "/purchase_infos" for 127.0.0.1 at 2018-01-11 21:15:50 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[36mPurchaseInfo Load (0.2ms)[0m  [1mSELECT `purchase_infos`.* FROM `purchase_infos`[0m
+  Rendered purchase_infos/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 24ms (Views: 23.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-11 21:15:50 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-11 21:15:50 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-11 21:15:50 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-11 21:15:50 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-11 21:15:50 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-11 21:15:50 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-11 21:15:50 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-11 21:15:50 -0200
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-11 21:16:43 -0200
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"belLoLRABM9O1qwFZPxIXtA8zyxK1/q9aNX/UM/WXNns/T8rWCj24ociup0eE5k+iTJEnJ/Nyuc/j4PoQsKd+w==", "purchase_info"=>{"purchaser_name"=>"", "item_description"=>"", "item_price"=>"", "purchase_count"=>"", "merchant_address"=>"", "merchant_name"=>"", "temp_file"=>#<ActionDispatch::Http::UploadedFile:0x000000024dd198 @tempfile=#<Tempfile:/tmp/RackMultipart20180111-13306-v1rk8k.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase_info[temp_file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Create Purchase info"}
+  [1m[35mPurchaseInfo Load (0.2ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 29
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 30[0m
+  [1m[35m (1.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 31
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 32[0m
+  [1m[35m (1.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:19:51', '2018-01-11 23:19:51')
+  [1m[36m (3.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:19:51', '2018-01-11 23:19:51')[0m
+  [1m[35m (2.9ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:19:52', '2018-01-11 23:19:52')
+  [1m[36m (2.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('purchaser name', 'item description', 0.0, 0, 'merchant address', 'merchant name João Silva', '2018-01-11 23:19:52', '2018-01-11 23:19:52')[0m
+  [1m[35m (2.9ms)[0m  COMMIT
+  Rendered purchase_infos/_form.html.erb (0.5ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 191318ms (ActiveRecord: 19.9ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for(@purchase_info) do |f| %>
+    2:   <% if @purchase_info.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@purchase_info.errors.count, "error") %> prohibited this purchase_info from being saved:</h2>
+  app/views/purchase_infos/_form.html.erb:1:in `_app_views_purchase_infos__form_html_erb__413731338535859828_18146220'
+  app/views/purchase_infos/new.html.erb:3:in `_app_views_purchase_infos_new_html_erb___3884627684338082058_19257220'
+  app/controllers/purchase_infos_controller.rb:53:in `create'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (17.6ms)
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-11 21:19:58 -0200
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"belLoLRABM9O1qwFZPxIXtA8zyxK1/q9aNX/UM/WXNns/T8rWCj24ociup0eE5k+iTJEnJ/Nyuc/j4PoQsKd+w==", "purchase_info"=>{"purchaser_name"=>"", "item_description"=>"", "item_price"=>"", "purchase_count"=>"", "merchant_address"=>"", "merchant_name"=>"", "temp_file"=>#<ActionDispatch::Http::UploadedFile:0x000000023c8d48 @tempfile=#<Tempfile:/tmp/RackMultipart20180111-13306-1y4o3xd.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase_info[temp_file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Create Purchase info"}
+Completed 500 Internal Server Error in 118090ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `squish' for nil:NilClass):
+  app/controllers/purchase_infos_controller.rb:56:in `block in create'
+  app/controllers/purchase_infos_controller.rb:50:in `each_line'
+  app/controllers/purchase_infos_controller.rb:50:in `create'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.2ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (15.2ms)
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-11 21:22:22 -0200
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"belLoLRABM9O1qwFZPxIXtA8zyxK1/q9aNX/UM/WXNns/T8rWCj24ociup0eE5k+iTJEnJ/Nyuc/j4PoQsKd+w==", "purchase_info"=>{"purchaser_name"=>"", "item_description"=>"", "item_price"=>"", "purchase_count"=>"", "merchant_address"=>"", "merchant_name"=>"", "temp_file"=>#<ActionDispatch::Http::UploadedFile:0x0000000474d6b0 @tempfile=#<Tempfile:/tmp/RackMultipart20180111-13306-18va4it.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase_info[temp_file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Create Purchase info"}
+Completed 500 Internal Server Error in 41059ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `squish' for nil:NilClass):
+  app/controllers/purchase_infos_controller.rb:34:in `block in parse_data'
+  app/controllers/purchase_infos_controller.rb:28:in `each'
+  app/controllers/purchase_infos_controller.rb:28:in `parse_data'
+  app/controllers/purchase_infos_controller.rb:50:in `create'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.1ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (18.2ms)
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-11 21:23:23 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by PurchaseInfosController#new as HTML
+  Rendered purchase_infos/_form.html.erb (17.9ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 96ms (Views: 82.8ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-11 21:23:27 -0200
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qc0yW3jFaTc6Ev8A7Aq+E7aJwDMk8F/X4UJKPD6lia4o2UbQlK2bGvPm6ZiW5W9z74dLg/Hqb422GDaEs7FIjA==", "purchase_info"=>{"purchaser_name"=>"", "item_description"=>"", "item_price"=>"", "purchase_count"=>"", "merchant_address"=>"", "merchant_name"=>"", "temp_file"=>#<ActionDispatch::Http::UploadedFile:0x00000005b770f0 @tempfile=#<Tempfile:/tmp/RackMultipart20180111-14386-z3pteu.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase_info[temp_file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Create Purchase info"}
+Completed 500 Internal Server Error in 67643ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `squish' for nil:NilClass):
+  app/controllers/purchase_infos_controller.rb:34:in `block in parse_data'
+  app/controllers/purchase_infos_controller.rb:28:in `each'
+  app/controllers/purchase_infos_controller.rb:28:in `parse_data'
+  app/controllers/purchase_infos_controller.rb:50:in `create'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.2ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (19.0ms)
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-11 21:24:52 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RqGbjTxkt0a3yp2Sisi3SAxurqEji4xhKcREd5qa0sfHte8G0AxFa34+iwrwJ2YoVWAlEfaRvDt+njjPF44T5Q==", "purchase_info"=>{"purchaser_name"=>"", "item_description"=>"", "item_price"=>"", "purchase_count"=>"", "merchant_address"=>"", "merchant_name"=>"", "temp_file"=>#<ActionDispatch::Http::UploadedFile:0x00000002e542f8 @tempfile=#<Tempfile:/tmp/RackMultipart20180111-14473-1s49baf.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase_info[temp_file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Create Purchase info"}
+  [1m[35mPurchaseInfo Load (0.2ms)[0m  SELECT  `purchase_infos`.* FROM `purchase_infos`  ORDER BY `purchase_infos`.`id` DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `created_at`, `updated_at`) VALUES ('[\"purchaser name\\titem description\\titem price\\tpurchase count\\tmerchant address\\tmerchant name\", \"João Silva\\tR$10 off R$20 of food\\t10.0\\t2\\t987 Fake St\\tBob\'s Pizza\", \"Amy Pond\\tR$30 of awesome for R$10\\t10.0\\t5\\t456 Unreal Rd\\tTom\'s Awesome Shop\", \"Marty McFly\\tR$20 Sneakers for R$5\\t5.0\\t1\\t123 Fake St\\tSneaker Store Emporium\", \"Snake Plissken\\tR$20 Sneakers for R$5\\t5.0\\t4\\t123 Fake St\\tSneaker Store Emporium\"]', '2018-01-11 23:25:06', '2018-01-11 23:25:06')
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 13947ms (ActiveRecord: 1.6ms)
+
+ActiveRecord::StatementInvalid (Mysql2::Error: Data too long for column 'purchaser_name' at row 1: INSERT INTO `purchase_infos` (`purchaser_name`, `created_at`, `updated_at`) VALUES ('[\"purchaser name\\titem description\\titem price\\tpurchase count\\tmerchant address\\tmerchant name\", \"João Silva\\tR$10 off R$20 of food\\t10.0\\t2\\t987 Fake St\\tBob\'s Pizza\", \"Amy Pond\\tR$30 of awesome for R$10\\t10.0\\t5\\t456 Unreal Rd\\tTom\'s Awesome Shop\", \"Marty McFly\\tR$20 Sneakers for R$5\\t5.0\\t1\\t123 Fake St\\tSneaker Store Emporium\", \"Snake Plissken\\tR$20 Sneakers for R$5\\t5.0\\t4\\t123 Fake St\\tSneaker Store Emporium\"]', '2018-01-11 23:25:06', '2018-01-11 23:25:06')):
+  app/controllers/purchase_infos_controller.rb:34:in `block in parse_data'
+  app/controllers/purchase_infos_controller.rb:28:in `each'
+  app/controllers/purchase_infos_controller.rb:28:in `parse_data'
+  app/controllers/purchase_infos_controller.rb:50:in `create'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (17.0ms)
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-11 21:25:29 -0200
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RqGbjTxkt0a3yp2Sisi3SAxurqEji4xhKcREd5qa0sfHte8G0AxFa34+iwrwJ2YoVWAlEfaRvDt+njjPF44T5Q==", "purchase_info"=>{"purchaser_name"=>"", "item_description"=>"", "item_price"=>"", "purchase_count"=>"", "merchant_address"=>"", "merchant_name"=>"", "temp_file"=>#<ActionDispatch::Http::UploadedFile:0x000000049eb408 @tempfile=#<Tempfile:/tmp/RackMultipart20180111-14473-vy8whq.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase_info[temp_file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Create Purchase info"}
+  Rendered purchase_infos/_form.html.erb (1.1ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (3.3ms)
+Completed 500 Internal Server Error in 185619ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for(@purchase_info) do |f| %>
+    2:   <% if @purchase_info.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@purchase_info.errors.count, "error") %> prohibited this purchase_info from being saved:</h2>
+  app/views/purchase_infos/_form.html.erb:1:in `_app_views_purchase_infos__form_html_erb__4229529756874026356_14952180'
+  app/views/purchase_infos/new.html.erb:3:in `_app_views_purchase_infos_new_html_erb___244481419434373530_18148040'
+  app/controllers/purchase_infos_controller.rb:58:in `create'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.7ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (17.0ms)
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-11 21:28:43 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RqGbjTxkt0a3yp2Sisi3SAxurqEji4xhKcREd5qa0sfHte8G0AxFa34+iwrwJ2YoVWAlEfaRvDt+njjPF44T5Q==", "purchase_info"=>{"purchaser_name"=>"", "item_description"=>"", "item_price"=>"", "purchase_count"=>"", "merchant_address"=>"", "merchant_name"=>"", "temp_file"=>#<ActionDispatch::Http::UploadedFile:0x0000000302c850 @tempfile=#<Tempfile:/tmp/RackMultipart20180111-14621-qn5lqb.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase_info[temp_file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Create Purchase info"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('João Silva', 'R$10 off R$20 of food', 10.0, 2, '987 Fake St', 'Bob\'s Pizza', '2018-01-11 23:28:46', '2018-01-11 23:28:46')[0m
+  [1m[35m (1.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('Amy Pond', 'R$30 of awesome for R$10', 10.0, 5, '456 Unreal Rd', 'Tom\'s Awesome Shop', '2018-01-11 23:28:47', '2018-01-11 23:28:47')
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mPurchaseInfo Load (0.3ms)[0m  SELECT  `purchase_infos`.* FROM `purchase_infos`  ORDER BY `purchase_infos`.`id` DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('Marty McFly', 'R$20 Sneakers for R$5', 5.0, 1, '123 Fake St', 'Sneaker Store Emporium', '2018-01-11 23:28:53', '2018-01-11 23:28:53')
+  [1m[36m (2.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('Snake Plissken', 'R$20 Sneakers for R$5', 5.0, 4, '123 Fake St', 'Sneaker Store Emporium', '2018-01-11 23:28:55', '2018-01-11 23:28:55')[0m
+  [1m[35m (2.7ms)[0m  COMMIT
+  Rendered purchase_infos/_form.html.erb (1.9ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (4.4ms)
+Completed 500 Internal Server Error in 14211ms (ActiveRecord: 10.9ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for(@purchase_info) do |f| %>
+    2:   <% if @purchase_info.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@purchase_info.errors.count, "error") %> prohibited this purchase_info from being saved:</h2>
+  app/views/purchase_infos/_form.html.erb:1:in `_app_views_purchase_infos__form_html_erb___4521935401068186899_35735080'
+  app/views/purchase_infos/new.html.erb:3:in `_app_views_purchase_infos_new_html_erb___1828811027261444878_36300620'
+  app/controllers/purchase_infos_controller.rb:58:in `create'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (17.5ms)
+
+
+Started GET "/purchase_infos" for 127.0.0.1 at 2018-01-11 21:29:00 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[36mPurchaseInfo Load (0.2ms)[0m  [1mSELECT `purchase_infos`.* FROM `purchase_infos`[0m
+  Rendered purchase_infos/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 45ms (Views: 44.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-11 21:29:00 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-11 21:29:00 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-11 21:29:00 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-11 21:29:00 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-11 21:29:00 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-11 21:29:00 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-11 21:29:00 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-11 21:29:00 -0200
+
+
+Started GET "/purchase_infos/37" for 127.0.0.1 at 2018-01-11 21:29:05 -0200
+Processing by PurchaseInfosController#show as HTML
+  Parameters: {"id"=>"37"}
+  [1m[35mPurchaseInfo Load (0.4ms)[0m  SELECT  `purchase_infos`.* FROM `purchase_infos` WHERE `purchase_infos`.`id` = 37 LIMIT 1
+  Rendered purchase_infos/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 29ms (Views: 24.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-11 21:29:25 -0200
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RqGbjTxkt0a3yp2Sisi3SAxurqEji4xhKcREd5qa0sfHte8G0AxFa34+iwrwJ2YoVWAlEfaRvDt+njjPF44T5Q==", "purchase_info"=>{"purchaser_name"=>"", "item_description"=>"", "item_price"=>"", "purchase_count"=>"", "merchant_address"=>"", "merchant_name"=>"", "temp_file"=>#<ActionDispatch::Http::UploadedFile:0x00000002fc8a30 @tempfile=#<Tempfile:/tmp/RackMultipart20180111-14621-1a4yoph.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase_info[temp_file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">}, "commit"=>"Create Purchase info"}
+  [1m[36mPurchaseInfo Load (0.1ms)[0m  [1mSELECT `purchase_infos`.* FROM `purchase_infos`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 33[0m
+  [1m[35m (3.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 34
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 35[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 36
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 37[0m
+  [1m[35m (1.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 38
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 39[0m
+  [1m[35m (1.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 40
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('João Silva', 'R$10 off R$20 of food', 10.0, 2, '987 Fake St', 'Bob\'s Pizza', '2018-01-11 23:29:36', '2018-01-11 23:29:36')[0m
+  [1m[35m (3.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('Amy Pond', 'R$30 of awesome for R$10', 10.0, 5, '456 Unreal Rd', 'Tom\'s Awesome Shop', '2018-01-11 23:29:36', '2018-01-11 23:29:36')
+  [1m[36m (3.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('Marty McFly', 'R$20 Sneakers for R$5', 5.0, 1, '123 Fake St', 'Sneaker Store Emporium', '2018-01-11 23:29:37', '2018-01-11 23:29:37')[0m
+  [1m[35m (2.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('Snake Plissken', 'R$20 Sneakers for R$5', 5.0, 4, '123 Fake St', 'Sneaker Store Emporium', '2018-01-11 23:29:38', '2018-01-11 23:29:38')
+  [1m[36m (2.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/purchase_infos/new
+Completed 302 Found in 13379ms (ActiveRecord: 25.7ms)
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-11 21:29:38 -0200
+Processing by PurchaseInfosController#new as HTML
+  Rendered purchase_infos/_form.html.erb (10.1ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 41ms (Views: 40.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-11 21:29:38 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-11 21:29:38 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-11 21:29:38 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-11 21:29:38 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-11 21:29:38 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-11 21:29:38 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-11 21:29:38 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-11 21:29:38 -0200
+
+
+Started GET "/purchase_infos" for 127.0.0.1 at 2018-01-11 21:29:47 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[35mPurchaseInfo Load (0.2ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  Rendered purchase_infos/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 21ms (Views: 20.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-11 21:29:47 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-11 21:29:47 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-11 21:29:47 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-11 21:29:47 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-11 21:29:47 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-11 21:29:47 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-11 21:29:47 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-11 21:29:47 -0200
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 10:28:43 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by PurchaseInfosController#index as HTML
+  [1m[35mPurchaseInfo Load (0.2ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  Rendered purchase_infos/index.html.erb within layouts/application (8.5ms)
+Completed 500 Internal Server Error in 116ms (ActiveRecord: 1.0ms)
+
+ActionView::Template::Error (Asset filtered out and will not be served: add `Rails.application.config.assets.precompile += %w( bootstrap.css )` to `config/initializers/assets.rb` and restart your server):
+    3: <head>
+    4:   <title>ProgrammingChallenge</title>
+    5:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    6:   <%= stylesheet_link_tag "bootstrap.css" %>
+    7:   <%= stylesheet_link_tag "https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" %>
+    8:   <%= stylesheet_link_tag "admin" %>
+    9:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb___3604765479804030653_30475260'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.2ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.3ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (20.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 10:30:35 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by PurchaseInfosController#index as HTML
+  [1m[35mPurchaseInfo Load (0.1ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  Rendered purchase_infos/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 140ms (Views: 130.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 10:30:35 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 10:30:35 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 10:30:35 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 10:30:35 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 10:30:35 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 10:30:35 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 10:30:35 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 10:30:35 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 10:30:35 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 10:30:35 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 10:30:35 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 10:30:35 -0200
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 10:38:31 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[36mPurchaseInfo Load (0.3ms)[0m  [1mSELECT `purchase_infos`.* FROM `purchase_infos`[0m
+  Rendered purchase_infos/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 65ms (Views: 64.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 10:38:31 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 10:38:31 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 10:38:31 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 10:38:31 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 10:38:31 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 10:38:31 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 10:38:31 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 10:38:31 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 10:38:31 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 10:38:31 -0200
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 10:39:14 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[35mPurchaseInfo Load (0.1ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  Rendered purchase_infos/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 46ms (Views: 45.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 10:39:14 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 10:39:14 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 10:39:14 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 10:39:14 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 10:39:14 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 10:39:14 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 10:39:14 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 10:39:14 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 10:39:14 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 10:39:14 -0200
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 10:39:36 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[36mPurchaseInfo Load (0.1ms)[0m  [1mSELECT `purchase_infos`.* FROM `purchase_infos`[0m
+  Rendered purchase_infos/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 45ms (Views: 44.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 10:39:36 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 10:39:36 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 10:39:36 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 10:39:36 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 10:39:36 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 10:39:36 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 10:39:36 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 10:39:36 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 10:39:36 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 10:39:36 -0200
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 10:40:15 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[35mPurchaseInfo Load (0.2ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  Rendered purchase_infos/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 45ms (Views: 43.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 10:40:15 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 10:40:15 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 10:40:15 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 10:40:15 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 10:40:15 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 10:40:15 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 10:40:15 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 10:40:15 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 10:40:15 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 10:40:15 -0200
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 10:40:44 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[36mPurchaseInfo Load (0.1ms)[0m  [1mSELECT `purchase_infos`.* FROM `purchase_infos`[0m
+  Rendered purchase_infos/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 44ms (Views: 42.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 10:40:44 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 10:40:44 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 10:40:44 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 10:40:44 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 10:40:44 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 10:40:44 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 10:40:44 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 10:40:44 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 10:40:44 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 10:40:44 -0200
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 10:40:55 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[35mPurchaseInfo Load (0.1ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  Rendered purchase_infos/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 43ms (Views: 42.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 10:40:55 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 10:40:55 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 10:40:55 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 10:40:55 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 10:40:55 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 10:40:55 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 10:40:55 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 10:40:55 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 10:40:55 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 10:40:55 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 10:40:59 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 10:40:59 -0200
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 10:40:59 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 10:40:59 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 10:40:59 -0200
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 10:42:15 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[36mPurchaseInfo Load (0.2ms)[0m  [1mSELECT `purchase_infos`.* FROM `purchase_infos`[0m
+  Rendered purchase_infos/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 46ms (Views: 44.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 10:42:15 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 10:42:15 -0200
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 10:42:16 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 10:42:16 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 10:42:16 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 10:42:16 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 10:42:16 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 10:42:16 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 10:42:16 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 10:42:16 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 10:42:16 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 10:42:16 -0200
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 10:42:17 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[35mPurchaseInfo Load (0.1ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  Rendered purchase_infos/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 47ms (Views: 46.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 10:42:17 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 10:42:17 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 10:42:17 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 10:42:17 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 10:42:17 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 10:42:17 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 10:42:17 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 10:42:17 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 10:42:17 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 10:42:17 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 10:42:17 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 10:42:17 -0200
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 10:42:33 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[36mPurchaseInfo Load (0.1ms)[0m  [1mSELECT `purchase_infos`.* FROM `purchase_infos`[0m
+  Rendered purchase_infos/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 51ms (Views: 50.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 10:42:33 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 10:42:33 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 10:42:33 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 10:42:33 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 10:42:33 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 10:42:33 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 10:42:33 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 10:42:33 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 10:42:33 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 10:42:33 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 10:42:33 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 10:42:33 -0200
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 10:42:42 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[35mPurchaseInfo Load (0.1ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  Rendered purchase_infos/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 48ms (Views: 47.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 10:42:42 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 10:42:42 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 10:42:42 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 10:42:42 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 10:42:42 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 10:42:42 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 10:42:42 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 10:42:42 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 10:42:42 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 10:42:42 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 10:42:42 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 10:42:42 -0200
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-12 10:42:56 -0200
+Processing by PurchaseInfosController#new as HTML
+  Rendered purchase_infos/_form.html.erb (10.4ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 60ms (Views: 58.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-12 10:44:21 -0200
+Processing by PurchaseInfosController#new as HTML
+  Rendered purchase_infos/_form.html.erb (2.1ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 43ms (Views: 41.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 10:44:21 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 10:44:21 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 10:44:21 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 10:44:21 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 10:44:21 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 10:44:21 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 10:44:21 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 10:44:21 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 10:44:21 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 10:44:21 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 10:44:21 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 10:44:21 -0200
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-12 10:44:30 -0200
+Processing by PurchaseInfosController#new as HTML
+  Rendered purchase_infos/_form.html.erb (2.2ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 44ms (Views: 41.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 10:44:30 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 10:44:30 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 10:44:30 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 10:44:30 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 10:44:30 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 10:44:30 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 10:44:30 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 10:44:30 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 10:44:30 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 10:44:30 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 10:44:30 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 10:44:30 -0200
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-12 10:45:10 -0200
+Processing by PurchaseInfosController#new as HTML
+  Rendered purchase_infos/_form.html.erb (2.1ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 46ms (Views: 44.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 10:45:10 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 10:45:10 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 10:45:10 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 10:45:10 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 10:45:10 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 10:45:10 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 10:45:10 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 10:45:10 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 10:45:10 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 10:45:10 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 10:45:10 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 10:45:10 -0200
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-12 10:45:28 -0200
+Processing by PurchaseInfosController#new as HTML
+  Rendered purchase_infos/_form.html.erb (2.0ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 45ms (Views: 44.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 10:45:28 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 10:45:28 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 10:45:28 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 10:45:28 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 10:45:28 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 10:45:28 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 10:45:28 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 10:45:28 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 10:45:28 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 10:45:28 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 10:45:28 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 10:45:28 -0200
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-12 10:50:35 -0200
+Processing by PurchaseInfosController#new as HTML
+  Rendered purchase_infos/_form.html.erb (12.1ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (12.8ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `trix_editor' for #<ActionView::Helpers::FormBuilder:0x0000000213af18>):
+    11:           <%= f.text_field :purchaser_name, :class => "form-control", :placeholder => "Nome do comprador" %>
+    12:         </p>
+    13:         <p>
+    14:           <%= f.trix_editor :item_description, :class => "form-control", :placeholder => "Descrição do item", rows: "40" %>
+    15:         </p>
+    16:         <p>
+    17:           <%= f.trix_number :item_price, :placeholder => "Preço do Item" %>
+  app/views/purchase_infos/_form.html.erb:14:in `block in _app_views_purchase_infos__form_html_erb___2296165528183478938_17579060'
+  app/views/purchase_infos/_form.html.erb:4:in `_app_views_purchase_infos__form_html_erb___2296165528183478938_17579060'
+  app/views/purchase_infos/new.html.erb:10:in `_app_views_purchase_infos_new_html_erb__4490211376694307711_16245160'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.3ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (15.3ms)
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-12 10:51:18 -0200
+Processing by PurchaseInfosController#new as HTML
+  Rendered purchase_infos/_form.html.erb (1.5ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 41ms (Views: 40.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 10:51:18 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 10:51:18 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 10:51:18 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 10:51:18 -0200
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 10:51:18 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 10:51:18 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 10:51:18 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 10:51:18 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 10:51:18 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 10:51:18 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 10:51:18 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 10:51:18 -0200
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-12 11:05:29 -0200
+Processing by PurchaseInfosController#new as HTML
+  Rendered purchase_infos/_form.html.erb (1.4ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 42ms (Views: 41.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 11:05:29 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 11:05:29 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 11:05:29 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 11:05:29 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 11:05:29 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 11:05:29 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 11:05:29 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 11:05:29 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 11:05:29 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 11:05:29 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 11:05:29 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 11:05:29 -0200
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-12 11:05:32 -0200
+Processing by PurchaseInfosController#new as HTML
+  Rendered purchase_infos/_form.html.erb (0.9ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 42ms (Views: 41.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 11:05:32 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 11:05:32 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 11:05:32 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 11:05:32 -0200
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 11:05:32 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 11:05:32 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 11:05:32 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 11:05:32 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 11:05:32 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 11:05:32 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 11:05:32 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 11:05:32 -0200
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-12 11:05:54 -0200
+Processing by PurchaseInfosController#new as HTML
+  Rendered purchase_infos/_form.html.erb (1.5ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 43ms (Views: 42.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 11:05:55 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 11:05:55 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 11:05:55 -0200
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 11:05:55 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 11:05:55 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 11:05:55 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 11:05:55 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 11:05:55 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 11:05:55 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 11:05:55 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 11:05:55 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 11:05:55 -0200
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-12 11:06:15 -0200
+Processing by PurchaseInfosController#new as HTML
+  Rendered purchase_infos/_form.html.erb (1.7ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 44ms (Views: 43.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 11:06:16 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 11:06:16 -0200
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 11:06:16 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 11:06:16 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 11:06:16 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 11:06:16 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 11:06:16 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 11:06:16 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 11:06:16 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 11:06:16 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 11:06:16 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 11:06:16 -0200
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-12 11:07:12 -0200
+Processing by PurchaseInfosController#new as HTML
+  Rendered purchase_infos/_form.html.erb (1.6ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 44ms (Views: 43.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 11:07:12 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 11:07:12 -0200
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 11:07:12 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 11:07:12 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 11:07:12 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 11:07:12 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 11:07:12 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 11:07:12 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 11:07:12 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 11:07:12 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 11:07:12 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 11:07:12 -0200
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-12 11:07:34 -0200
+Processing by PurchaseInfosController#new as HTML
+  Rendered purchase_infos/_form.html.erb (1.4ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 46ms (Views: 45.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 11:07:34 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 11:07:34 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 11:07:34 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 11:07:34 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 11:07:34 -0200
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-12 11:08:32 -0200
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ktCfRO5Hk5hxItXWO8IqnICEHNwWHQaIqUkUYrj0Wd0TxOvPAi9htbjWw05BLfv82YqXbMMHNtL+E2jaNeCY/w==", "purchase_info"=>{"purchaser_name"=>"teste", "item_description"=>"teste", "item_price"=>"12", "purchase_count"=>"2", "merchant_address"=>"ere", "merchant_name"=>"erer"}, "commit"=>"Salvar"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `read' for nil:NilClass):
+  app/controllers/purchase_infos_controller.rb:48:in `create'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (15.1ms)
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-12 11:12:05 -0200
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ktCfRO5Hk5hxItXWO8IqnICEHNwWHQaIqUkUYrj0Wd0TxOvPAi9htbjWw05BLfv82YqXbMMHNtL+E2jaNeCY/w==", "purchase_info"=>{"purchaser_name"=>"teste", "item_description"=>"teste", "item_price"=>"12", "purchase_count"=>"2", "merchant_address"=>"ere", "merchant_name"=>"erer"}, "commit"=>"Salvar"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('teste', 'teste', 12.0, 2, 'ere', 'erer', '2018-01-12 13:12:05', '2018-01-12 13:12:05')
+  [1m[36m (3.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/purchase_infos
+Completed 302 Found in 11ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/purchase_infos" for 127.0.0.1 at 2018-01-12 11:12:06 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[35mPurchaseInfo Load (0.2ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  Rendered purchase_infos/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 44ms (Views: 43.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 11:12:06 -0200
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 11:12:06 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 11:12:06 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 11:12:06 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 11:12:06 -0200
+
+
+Started DELETE "/purchase_infos/45" for 127.0.0.1 at 2018-01-12 11:12:13 -0200
+Processing by PurchaseInfosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"NUrxiourrAQCSIHfVvMJ2oc6GEQNHqcRLmKtEXq88Gy0XoUBZ8NeKcu8l0csHNi63jST9NgEl0t5ONGp96gxTg==", "id"=>"45"}
+  [1m[36mPurchaseInfo Load (0.3ms)[0m  [1mSELECT  `purchase_infos`.* FROM `purchase_infos` WHERE `purchase_infos`.`id` = 45 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 45[0m
+  [1m[35m (1.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/purchase_infos
+Completed 302 Found in 11ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/purchase_infos" for 127.0.0.1 at 2018-01-12 11:12:13 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[36mPurchaseInfo Load (0.2ms)[0m  [1mSELECT `purchase_infos`.* FROM `purchase_infos`[0m
+  Rendered purchase_infos/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 45ms (Views: 44.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 11:12:13 -0200
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 11:12:13 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 11:12:13 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 11:12:13 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 11:12:13 -0200
+
+
+Started GET "/purchase_infos/41" for 127.0.0.1 at 2018-01-12 11:14:08 -0200
+Processing by PurchaseInfosController#show as HTML
+  Parameters: {"id"=>"41"}
+  [1m[35mPurchaseInfo Load (0.2ms)[0m  SELECT  `purchase_infos`.* FROM `purchase_infos` WHERE `purchase_infos`.`id` = 41 LIMIT 1
+  Rendered purchase_infos/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 49ms (Views: 43.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/purchase_infos/41/edit" for 127.0.0.1 at 2018-01-12 11:14:15 -0200
+Processing by PurchaseInfosController#edit as HTML
+  Parameters: {"id"=>"41"}
+  [1m[36mPurchaseInfo Load (0.1ms)[0m  [1mSELECT  `purchase_infos`.* FROM `purchase_infos` WHERE `purchase_infos`.`id` = 41 LIMIT 1[0m
+  Rendered purchase_infos/_form.html.erb (1.9ms)
+  Rendered purchase_infos/edit.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 44ms (Views: 43.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/purchase_infos" for 127.0.0.1 at 2018-01-12 11:17:04 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[35mPurchaseInfo Load (0.1ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  Rendered purchase_infos/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 43ms (Views: 42.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 11:17:04 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 11:17:04 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 11:17:04 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 11:17:04 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 11:17:04 -0200
+
+
+Started GET "/purchase_infos/42/edit" for 127.0.0.1 at 2018-01-12 11:19:01 -0200
+Processing by PurchaseInfosController#edit as HTML
+  Parameters: {"id"=>"42"}
+  [1m[36mPurchaseInfo Load (0.3ms)[0m  [1mSELECT  `purchase_infos`.* FROM `purchase_infos` WHERE `purchase_infos`.`id` = 42 LIMIT 1[0m
+  Rendered purchase_infos/_form.html.erb (1.6ms)
+  Rendered purchase_infos/edit.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 49ms (Views: 47.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/purchase_infos" for 127.0.0.1 at 2018-01-12 11:25:43 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[35mPurchaseInfo Load (0.1ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  Rendered purchase_infos/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 50ms (Views: 48.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/purchase_infos/42" for 127.0.0.1 at 2018-01-12 11:25:44 -0200
+Processing by PurchaseInfosController#show as HTML
+  Parameters: {"id"=>"42"}
+  [1m[36mPurchaseInfo Load (0.1ms)[0m  [1mSELECT  `purchase_infos`.* FROM `purchase_infos` WHERE `purchase_infos`.`id` = 42 LIMIT 1[0m
+  Rendered purchase_infos/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 43ms (Views: 42.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/purchase_infos/42" for 127.0.0.1 at 2018-01-12 11:26:02 -0200
+Processing by PurchaseInfosController#show as HTML
+  Parameters: {"id"=>"42"}
+  [1m[35mPurchaseInfo Load (0.1ms)[0m  SELECT  `purchase_infos`.* FROM `purchase_infos` WHERE `purchase_infos`.`id` = 42 LIMIT 1
+  Rendered purchase_infos/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 42ms (Views: 40.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 11:26:02 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 11:26:02 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 11:26:02 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 11:26:02 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 11:26:02 -0200
+
+
+Started GET "/purchase_infos/42" for 127.0.0.1 at 2018-01-12 11:26:07 -0200
+Processing by PurchaseInfosController#show as HTML
+  Parameters: {"id"=>"42"}
+  [1m[36mPurchaseInfo Load (0.1ms)[0m  [1mSELECT  `purchase_infos`.* FROM `purchase_infos` WHERE `purchase_infos`.`id` = 42 LIMIT 1[0m
+  Rendered purchase_infos/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 43ms (Views: 42.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 11:26:07 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 11:26:08 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 11:26:08 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 11:26:08 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 11:26:08 -0200
+
+
+Started GET "/purchase_infos/42" for 127.0.0.1 at 2018-01-12 11:26:20 -0200
+Processing by PurchaseInfosController#show as HTML
+  Parameters: {"id"=>"42"}
+  [1m[35mPurchaseInfo Load (0.1ms)[0m  SELECT  `purchase_infos`.* FROM `purchase_infos` WHERE `purchase_infos`.`id` = 42 LIMIT 1
+  Rendered purchase_infos/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 43ms (Views: 42.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 11:26:20 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 11:26:20 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 11:26:20 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 11:26:20 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 11:26:20 -0200
+
+
+Started GET "/purchase_infos/42" for 127.0.0.1 at 2018-01-12 11:26:28 -0200
+Processing by PurchaseInfosController#show as HTML
+  Parameters: {"id"=>"42"}
+  [1m[36mPurchaseInfo Load (0.2ms)[0m  [1mSELECT  `purchase_infos`.* FROM `purchase_infos` WHERE `purchase_infos`.`id` = 42 LIMIT 1[0m
+  Rendered purchase_infos/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 45ms (Views: 43.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 11:26:28 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 11:26:28 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 11:26:28 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 11:26:28 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 11:26:28 -0200
+
+
+Started GET "/purchase_infos/42" for 127.0.0.1 at 2018-01-12 11:26:35 -0200
+Processing by PurchaseInfosController#show as HTML
+  Parameters: {"id"=>"42"}
+  [1m[35mPurchaseInfo Load (0.1ms)[0m  SELECT  `purchase_infos`.* FROM `purchase_infos` WHERE `purchase_infos`.`id` = 42 LIMIT 1
+  Rendered purchase_infos/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 43ms (Views: 42.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 11:26:35 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 11:26:35 -0200
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 11:26:35 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 11:26:35 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 11:26:35 -0200
+
+
+Started GET "/purchase_infos" for 127.0.0.1 at 2018-01-12 11:27:00 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[36mPurchaseInfo Load (0.2ms)[0m  [1mSELECT `purchase_infos`.* FROM `purchase_infos`[0m
+  Rendered purchase_infos/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 47ms (Views: 45.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/purchase_infos" for 127.0.0.1 at 2018-01-12 11:38:39 -0200
+Processing by PurchaseInfosController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+NameError (uninitialized constant PurchaseInfosController::TotalPrice):
+  app/controllers/purchase_infos_controller.rb:11:in `index'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.0ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.2ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (16.8ms)
+
+
+Started GET "/purchase_infos" for 127.0.0.1 at 2018-01-12 11:39:01 -0200
+Processing by PurchaseInfosController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+NameError (uninitialized constant PurchaseInfosController::TotalPrice):
+  app/controllers/purchase_infos_controller.rb:11:in `index'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (20.5ms)
+
+
+Started GET "/purchase_infos" for 127.0.0.1 at 2018-01-12 11:40:11 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT SUM(`purchase_infos`.`item_price`) FROM `purchase_infos`
+  [1m[36m (0.2ms)[0m  [1mSELECT SUM(`purchase_infos`.`purchase_count`) FROM `purchase_infos`[0m
+  [1m[35mPurchaseInfo Load (0.1ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  Rendered purchase_infos/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 51ms (Views: 47.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 11:40:11 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 11:40:11 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 11:40:11 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 11:40:11 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 11:40:11 -0200
+
+
+Started GET "/purchase_infos" for 127.0.0.1 at 2018-01-12 11:40:22 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM(`purchase_infos`.`item_price`) FROM `purchase_infos`[0m
+  [1m[35m (0.1ms)[0m  SELECT SUM(`purchase_infos`.`purchase_count`) FROM `purchase_infos`
+  [1m[36mPurchaseInfo Load (0.1ms)[0m  [1mSELECT `purchase_infos`.* FROM `purchase_infos`[0m
+  Rendered purchase_infos/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 45ms (Views: 43.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 11:40:22 -0200
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 11:40:22 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 11:40:22 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 11:40:22 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 11:40:22 -0200
+
+
+Started GET "/purchase_infos" for 127.0.0.1 at 2018-01-12 11:40:32 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[35m (0.1ms)[0m  SELECT SUM(`purchase_infos`.`item_price`) FROM `purchase_infos`
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM(`purchase_infos`.`purchase_count`) FROM `purchase_infos`[0m
+  [1m[35mPurchaseInfo Load (0.1ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  Rendered purchase_infos/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 46ms (Views: 44.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 11:40:32 -0200
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 11:40:32 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 11:40:32 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 11:40:32 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 11:40:32 -0200
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-12 11:44:26 -0200
+Processing by PurchaseInfosController#new as HTML
+  Rendered purchase_infos/_form.html.erb (1.5ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 49ms (Views: 44.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-12 11:46:07 -0200
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dQjnQMRMnh1MOfUqNPWV+DjPxK80l5EIk1zJ2r8VfZP0HJPLKCRsMIXN47JOGkSYYcFPH+GNoVLEBrViMgG8sQ==", "purchase_info"=>{"temp_file"=>#<ActionDispatch::Http::UploadedFile:0x00000003b03490 @tempfile=#<Tempfile:/tmp/RackMultipart20180112-24165-151bgmb.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase_info[temp_file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">, "purchaser_name"=>"", "item_description"=>"", "item_price"=>"", "purchase_count"=>"", "merchant_address"=>"", "merchant_name"=>""}, "commit"=>"Salvar"}
+  [1m[36mPurchaseInfo Load (0.1ms)[0m  [1mSELECT `purchase_infos`.* FROM `purchase_infos`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 41[0m
+  [1m[35m (3.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 42
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 43[0m
+  [1m[35m (1.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 44
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('João Silva', 'R$10 off R$20 of food', 10.0, 2, '987 Fake St', 'Bob\'s Pizza', '2018-01-12 13:46:23', '2018-01-12 13:46:23')[0m
+  [1m[35m (3.1ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('Amy Pond', 'R$30 of awesome for R$10', 10.0, 5, '456 Unreal Rd', 'Tom\'s Awesome Shop', '2018-01-12 13:46:24', '2018-01-12 13:46:24')
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('Marty McFly', 'R$20 Sneakers for R$5', 5.0, 1, '123 Fake St', 'Sneaker Store Emporium', '2018-01-12 13:46:24', '2018-01-12 13:46:24')[0m
+  [1m[35m (4.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('Snake Plissken', 'R$20 Sneakers for R$5', 5.0, 4, '123 Fake St', 'Sneaker Store Emporium', '2018-01-12 13:46:24', '2018-01-12 13:46:24')
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 17024ms (ActiveRecord: 19.8ms)
+
+ArgumentError (too few arguments):
+  app/controllers/purchase_infos_controller.rb:58:in `format'
+  app/controllers/purchase_infos_controller.rb:58:in `create'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.8ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (14.0ms)
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-12 11:47:35 -0200
+Processing by PurchaseInfosController#new as HTML
+  Rendered purchase_infos/_form.html.erb (1.3ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 49ms (Views: 43.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 11:47:35 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 11:47:35 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 11:47:35 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 11:47:35 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 11:47:35 -0200
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-12 11:47:39 -0200
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZSupPTi6hB398sqwR5P9LXJSKHW7ku2T2jkT/RZotDvkP9221NJ2MDQG3Cg9fCxNK1yjxW6I3cmNY29Fm3x1GQ==", "purchase_info"=>{"temp_file"=>#<ActionDispatch::Http::UploadedFile:0x000000035224b8 @tempfile=#<Tempfile:/tmp/RackMultipart20180112-24165-8wsxgm.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase_info[temp_file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">, "purchaser_name"=>"", "item_description"=>"", "item_price"=>"", "purchase_count"=>"", "merchant_address"=>"", "merchant_name"=>""}, "commit"=>"Salvar"}
+  [1m[35mPurchaseInfo Load (0.2ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 46
+  [1m[36m (3.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 47[0m
+  [1m[35m (1.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 48
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 49[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('João Silva', 'R$10 off R$20 of food', 10.0, 2, '987 Fake St', 'Bob\'s Pizza', '2018-01-12 13:47:39', '2018-01-12 13:47:39')
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('Amy Pond', 'R$30 of awesome for R$10', 10.0, 5, '456 Unreal Rd', 'Tom\'s Awesome Shop', '2018-01-12 13:47:39', '2018-01-12 13:47:39')[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('Marty McFly', 'R$20 Sneakers for R$5', 5.0, 1, '123 Fake St', 'Sneaker Store Emporium', '2018-01-12 13:47:39', '2018-01-12 13:47:39')
+  [1m[36m (4.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('Snake Plissken', 'R$20 Sneakers for R$5', 5.0, 4, '123 Fake St', 'Sneaker Store Emporium', '2018-01-12 13:47:39', '2018-01-12 13:47:39')[0m
+  [1m[35m (1.4ms)[0m  COMMIT
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 16.2ms)
+
+ArgumentError (too few arguments):
+  app/controllers/purchase_infos_controller.rb:56:in `format'
+  app/controllers/purchase_infos_controller.rb:56:in `create'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.2ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (14.9ms)
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-12 11:47:53 -0200
+Processing by PurchaseInfosController#new as HTML
+  Rendered purchase_infos/_form.html.erb (1.3ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 49ms (Views: 43.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 11:47:53 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 11:47:53 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 11:47:53 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 11:47:53 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 11:47:53 -0200
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-12 11:47:56 -0200
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yr6AgaWKI0zaq7uJyav8RefiZxWCwv790wdfO8YdtXRLqvQKSeLRYRNfrRGzRC0lvuzspVfYzqeEXSODSwl0Vg==", "purchase_info"=>{"temp_file"=>#<ActionDispatch::Http::UploadedFile:0x00000003a23200 @tempfile=#<Tempfile:/tmp/RackMultipart20180112-24165-15d54g3.tab>, @original_filename="example_input.tab", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"purchase_info[temp_file]\"; filename=\"example_input.tab\"\r\nContent-Type: application/octet-stream\r\n">, "purchaser_name"=>"", "item_description"=>"", "item_price"=>"", "purchase_count"=>"", "merchant_address"=>"", "merchant_name"=>""}, "commit"=>"Salvar"}
+  [1m[36mPurchaseInfo Load (0.2ms)[0m  [1mSELECT `purchase_infos`.* FROM `purchase_infos`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 50[0m
+  [1m[35m (3.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 51
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 52[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 53
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('João Silva', 'R$10 off R$20 of food', 10.0, 2, '987 Fake St', 'Bob\'s Pizza', '2018-01-12 13:47:56', '2018-01-12 13:47:56')[0m
+  [1m[35m (1.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('Amy Pond', 'R$30 of awesome for R$10', 10.0, 5, '456 Unreal Rd', 'Tom\'s Awesome Shop', '2018-01-12 13:47:56', '2018-01-12 13:47:56')
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('Marty McFly', 'R$20 Sneakers for R$5', 5.0, 1, '123 Fake St', 'Sneaker Store Emporium', '2018-01-12 13:47:56', '2018-01-12 13:47:56')[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('Snake Plissken', 'R$20 Sneakers for R$5', 5.0, 4, '123 Fake St', 'Sneaker Store Emporium', '2018-01-12 13:47:56', '2018-01-12 13:47:56')
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/purchase_infos
+Completed 302 Found in 21ms (ActiveRecord: 12.8ms)
+
+
+Started GET "/purchase_infos" for 127.0.0.1 at 2018-01-12 11:47:56 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT SUM(`purchase_infos`.`item_price`) FROM `purchase_infos`
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM(`purchase_infos`.`purchase_count`) FROM `purchase_infos`[0m
+  [1m[35mPurchaseInfo Load (0.2ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  Rendered purchase_infos/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 44ms (Views: 42.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 11:47:56 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 11:47:56 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 11:47:56 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 11:47:56 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 11:47:56 -0200
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-12 11:48:04 -0200
+Processing by PurchaseInfosController#new as HTML
+  Rendered purchase_infos/_form.html.erb (1.7ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 47ms (Views: 46.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/purchase_infos" for 127.0.0.1 at 2018-01-12 11:48:10 -0200
+Processing by PurchaseInfosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QaHGBRZ9vVw9xXakckO5W5L3unyrOA2srzEDxDZuxV7AtbKO+hVPcfQxYDwIrGg7y/kxzH4iPfb4a398u3oEfA==", "purchase_info"=>{"purchaser_name"=>"Lucas Varani", "item_description"=>"asd", "item_price"=>"12", "purchase_count"=>"12", "merchant_address"=>"Rua dos Antúrios", "merchant_name"=>"asd"}, "commit"=>"Salvar"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `purchase_infos` (`purchaser_name`, `item_description`, `item_price`, `purchase_count`, `merchant_address`, `merchant_name`, `created_at`, `updated_at`) VALUES ('Lucas Varani', 'asd', 12.0, 12, 'Rua dos Antúrios', 'asd', '2018-01-12 13:48:10', '2018-01-12 13:48:10')
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/purchase_infos
+Completed 302 Found in 4ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/purchase_infos" for 127.0.0.1 at 2018-01-12 11:48:10 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT SUM(`purchase_infos`.`item_price`) FROM `purchase_infos`
+  [1m[36m (0.2ms)[0m  [1mSELECT SUM(`purchase_infos`.`purchase_count`) FROM `purchase_infos`[0m
+  [1m[35mPurchaseInfo Load (0.2ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  Rendered purchase_infos/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 43ms (Views: 41.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 11:48:10 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 11:48:10 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 11:48:10 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 11:48:10 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 11:48:10 -0200
+
+
+Started DELETE "/purchase_infos/58" for 127.0.0.1 at 2018-01-12 11:48:13 -0200
+Processing by PurchaseInfosController#destroy as HTML
+  Parameters: {"authenticity_token"=>"TOQC1MmTuPPnK/I6XM3CrTMz7iMNrMqhwjUpYK2jM0nN8HZfJftK3i7f5KImIhPNaj1lk9i2+vuVb1XYILfyaw==", "id"=>"58"}
+  [1m[36mPurchaseInfo Load (0.2ms)[0m  [1mSELECT  `purchase_infos`.* FROM `purchase_infos` WHERE `purchase_infos`.`id` = 58 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM `purchase_infos` WHERE `purchase_infos`.`id` = 58[0m
+  [1m[35m (3.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/purchase_infos
+Completed 302 Found in 6ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/purchase_infos" for 127.0.0.1 at 2018-01-12 11:48:13 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[36m (0.2ms)[0m  [1mSELECT SUM(`purchase_infos`.`item_price`) FROM `purchase_infos`[0m
+  [1m[35m (0.2ms)[0m  SELECT SUM(`purchase_infos`.`purchase_count`) FROM `purchase_infos`
+  [1m[36mPurchaseInfo Load (0.2ms)[0m  [1mSELECT `purchase_infos`.* FROM `purchase_infos`[0m
+  Rendered purchase_infos/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 43ms (Views: 41.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 11:48:13 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 11:48:13 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 11:48:14 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 11:48:14 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 11:48:14 -0200

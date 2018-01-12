@@ -1,0 +1,32 @@
+<div class="container-fluid m-5 p-5">
+  <div class="row">
+    <div class="col-sm-12 top-space a">
+      <%= form_for(@purchase_info) do |f| %>
+        <p>
+          <%= f.label "Arquivo" %>
+          <%= f.file_field :temp_file, :class => "form-control filestyle" %>
+        </p>
+        <span class="font-weight-bold">Caso não tenha nenhum arquivo, insira os dados abaixo.</span>
+        <p>
+          <%= f.text_field :purchaser_name, :class => "form-control mt-3", :placeholder => "Nome do comprador" %>
+        </p>
+        <p>
+          <%= f.text_field :item_description, :class => "form-control", :placeholder => "Descrição do item", rows: "40" %>
+        </p>
+        <p>
+          <%= f.number_field :item_price, :placeholder => "Preço do Item", :class => "form-control" %>
+        </p>
+        <p>
+          <%= f.number_field :purchase_count, :placeholder => "Numero de compras", :class => "form-control" %>
+        </p>
+        <p>
+          <%= f.text_field :merchant_address, :class => "form-control", :placeholder => "Endereço do comerciante" %>
+        </p>
+        <p>
+          <%= f.text_field :merchant_name, :class => "form-control", :placeholder => "Nome do comerciante" %>
+        </p>
+        <%= f.submit "Salvar", :class => "btn btn-default pull-right" %>
+      <% end %>
+    </div>
+  </div>
+</div>

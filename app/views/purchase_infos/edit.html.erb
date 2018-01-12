@@ -1,0 +1,14 @@
+<div class="container-fluid m-5 p-5">
+  <div class="row">
+    <h1>Editar informação de compra</h1>
+    <% if flash[:error] %>
+      <div class="alert alert-danger">
+        <b>Ops!</b>
+        Esta faltando alguma coisa
+      </div>
+    <% end %>
+    <%= render "form" %>
+    <br/>
+    <%= link_to 'Voltar', purchase_infos_path, :class => "btn btn-white" %>
+  </div>
+</div>

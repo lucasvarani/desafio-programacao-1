@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :purchase_infos
+
+  root to: "purchase_infos#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

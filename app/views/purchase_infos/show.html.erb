@@ -1,0 +1,45 @@
+<div class="container my-5 py-5">
+  <div class="row">
+    <div class="col-xs-9">
+      <h1>Informações de compras</h1>
+    </div>
+    <div class="col-xs-3">
+      <%= link_to "+ Novo arquivo", new_purchase_info_path, :class => "btn btn-default pull-right header-button text-white" %>
+    </div>
+  </div>
+  <% if flash[:notice] %>
+    <div class="alert alert-success">
+      <b>Concluido!</b>
+      Registro modificado com
+      <b>sucesso!</b>
+    </div>
+  <% end %>
+  <div>
+    <h3>Nome do comprador</h3>
+    <h2 class="details">
+      <%= @purchase_info.purchaser_name %>
+    </h2>
+    <h3>Descrição do item</h3>
+    <h2 class="details">
+      <%= @purchase_info.item_description %>
+    </h2>
+    <h3>Preço do item</h3>
+    <h2 class="details">
+      <%= @purchase_info.item_price %>
+    </h2>
+    <h3>Numero de compras</h3>
+    <h2 class="details">
+      <%= @purchase_info.purchase_count %>
+    </h2>
+    <h3>Endereço do comerciante</h3>
+    <h2 class="details">
+      <%= @purchase_info.merchant_address %>
+    </h2>
+    <h3>Nome do comerciante</h3>
+    <h2 class="details">
+      <%= @purchase_info.merchant_name %>
+    </h2>
+  </div>
+  <br/>
+  <%= link_to 'Voltar', purchase_infos_path, :class => "btn btn-white" %>
+</div>
