@@ -5,15 +5,16 @@ Ruby 2.2
 Rails 4
 
 ## Configuração do ambiente
-
-1. Baixe ou clone o repositório em seu ambiente local
+Em seu terminal, rode os seguintes comandos:
+1. Clone o repositório em seu ambiente local
+<code>git clone https://github.com/lucasvarani/desafio-programacao-1.git</code>
 2. Entre no diretório do projeto:
 <code>cd desafio-programacao-1</code>
 3. Rode o bundle
 <code>bundle install</code>
-4. Cria o banco de dados
+4. Crie o banco de dados
 <code>rake db:create</code>
-5. Rode a migrate
+5. Rode o migrate
 <code>rake db:migrate</code>
 6. Inicie o server
 <code>rails server</code>

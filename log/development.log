@@ -5445,3 +5445,21 @@ Completed 200 OK in 85ms (Views: 48.6ms | ActiveRecord: 7.4ms)
 
 
 Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:56:12 -0200
+
+
+Started GET "/purchase_infos" for 127.0.0.1 at 2018-01-12 13:01:32 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `last_request_at` = '2018-01-12 15:01:32', `perishable_token` = 'jpBSoss5FgzoZQguOOtj', `updated_at` = '2018-01-12 15:01:32' WHERE `users`.`id` = 2
+  [1m[36m (6.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT  `roles`.* FROM `roles` WHERE (name = 'administrator' and authorizable_type IS NULL and authorizable_id IS NULL)  ORDER BY `roles`.`id` ASC LIMIT 1
+  [1m[36mRole Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 2 AND `roles`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT SUM(`purchase_infos`.`item_price`) FROM `purchase_infos`
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM(`purchase_infos`.`purchase_count`) FROM `purchase_infos`[0m
+  [1m[35mPurchaseInfo Load (0.2ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  Rendered purchase_infos/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 56ms (Views: 40.3ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 13:01:32 -0200
