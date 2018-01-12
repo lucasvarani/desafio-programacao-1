@@ -1,8 +1,14 @@
+#Requerimentos e instruções
+
 ## Requerimentos
 
 Ruby 2.2
 
 Rails 4
+
+Mysql*
+
+*A dependencia é Mysql, mas pode ser alterado para Postgresql no config/database.yml
 
 ## Configuração do ambiente
 Em seu terminal, rode os seguintes comandos:
@@ -20,12 +26,14 @@ Em seu terminal, rode os seguintes comandos:
 <code>rails server</code>
 
 
-## Instruções de uso
+## Instruções
 Entrando no http://localhost:3000/ você ira se deparar com uma tela de login, clique em 'Criar uma conta' preencha os campos e salve.
 
 Você irá voltar para a tela de login, preeccha os campos com seus dados de login e clique em 'Entrar', depois de logar você entrara na página principal, clique em "+ Novo Arquivo", para entrar na página de inserção do arquivo.
 
 Na página de inserção, você terá duas opções, se tiver um arquivo com os dados já prontos basta clicar em "adicionar arquivo", escolher seu arquivo e depois clicar em "Salvar", caso não tenha nenhum arquivo, basta preencher os campos normalmente e depois salvar.
+
+Ao enviar um arquivo novo, os dados antigos sao apagados, pois o objetivo do desafio era processar o arquivo que tiver sido selecionado.
 
 Salvando o arquivo você será redirecionado para a página principal, aonde tera todos os dados inseridos, nessa página você tera a opção de exibir cada item individualmente, editar ou excluir.
 
