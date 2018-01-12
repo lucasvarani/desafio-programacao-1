@@ -1,3 +1,36 @@
+## Requerimentos
+
+Ruby 2.2
+
+Rails 4
+
+## Configuração do ambiente
+
+1. Baixe ou clone o repositório em seu ambiente local
+2. Entre no diretório do projeto:
+<code>cd desafio-programacao-1</code>
+3. Rode o bundle
+<code>bundle install</code>
+4. Cria o banco de dados
+<code>rake db:create</code>
+5. Rode a migrate
+<code>rake db:migrate</code>
+6. Inicie o server
+<code>rails server</code>
+
+
+## Instruções de uso
+Entrando no http://localhost:3000/ você ira se deparar com uma tela de login, clique em 'Criar uma conta' preencha os campos e salve.
+
+Você irá voltar para a tela de login, preeccha os campos com seus dados de login e clique em 'Entrar', depois de logar você entrara na página principal, clique em "+ Novo Arquivo", para entrar na página de inserção do arquivo.
+
+Na página de inserção, você terá duas opções, se tiver um arquivo com os dados já prontos basta clicar em "adicionar arquivo", escolher seu arquivo e depois clicar em "Salvar", caso não tenha nenhum arquivo, basta preencher os campos normalmente e depois salvar.
+
+Salvando o arquivo você será redirecionado para a página principal, aonde tera todos os dados inseridos, nessa página você tera a opção de exibir cada item individualmente, editar ou excluir.
+
+
+
+
 # Desafio de programação 1
 A idéia deste desafio é nos permitir avaliar melhor as habilidades de candidatos à vagas de programador, de vários níveis.
 
@@ -33,7 +66,7 @@ Sua aplicação web não precisa:
 1. Ter uma aparência bonita.
 
 ## Avaliação
-Seu projeto será avaliado de acordo com os seguintes critérios. 
+Seu projeto será avaliado de acordo com os seguintes critérios.
 
 1. Sua aplicação preenche os requerimentos básicos?
 1. Você documentou a maneira de configurar o ambiente e rodar sua aplicação?

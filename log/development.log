@@ -5388,3 +5388,60 @@ Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:34
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:34:53 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'programmingChallenge'
+  AND fk.table_name = 'purchase_infos'
+
+  [1m[36m (0.1ms)[0m  [1mSHOW CREATE TABLE `purchase_infos`[0m
+  [1m[35m (0.2ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'programmingChallenge'
+  AND fk.table_name = 'roles'
+
+  [1m[36m (0.1ms)[0m  [1mSHOW CREATE TABLE `roles`[0m
+  [1m[35m (0.2ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'programmingChallenge'
+  AND fk.table_name = 'roles_users'
+
+  [1m[36m (0.1ms)[0m  [1mSHOW CREATE TABLE `roles_users`[0m
+  [1m[35m (0.2ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'programmingChallenge'
+  AND fk.table_name = 'users'
+
+  [1m[36m (0.2ms)[0m  [1mSHOW CREATE TABLE `users`[0m
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-12 12:56:12 -0200
+Processing by PurchaseInfosController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `last_request_at` = '2018-01-12 14:56:12', `perishable_token` = '5wMS6Co4a2AChrv1z1oc', `updated_at` = '2018-01-12 14:56:12' WHERE `users`.`id` = 2
+  [1m[36m (4.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT  `roles`.* FROM `roles` WHERE (name = 'administrator' and authorizable_type IS NULL and authorizable_id IS NULL)  ORDER BY `roles`.`id` ASC LIMIT 1
+  [1m[36mRole Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 2 AND `roles`.`id` = 1 LIMIT 1[0m
+  Rendered purchase_infos/_form.html.erb (1.4ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 85ms (Views: 48.6ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:56:12 -0200
