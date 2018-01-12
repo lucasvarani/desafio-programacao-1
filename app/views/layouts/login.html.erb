@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>programingChallenge</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= stylesheet_link_tag "bootstrap.css" %>
+    <%= stylesheet_link_tag "admin" %>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"></link>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+  <div class="container my-5 py-5">
+    <%= yield %>
+  </div>
+  </body>
+  <%= javascript_include_tag "application" %>
+</html>

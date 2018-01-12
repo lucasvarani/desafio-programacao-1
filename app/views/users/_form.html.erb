@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-sm-12 top-space a">
+    <%= form_for @user, role: "form" do |f| %>
+      <p>
+        <%= f.text_field :login, :class => "form-control", :placeholder => "Login" %>
+      </p>
+      <p>
+        <%= f.password_field :password, :class => "form-control", :placeholder => "Senha" %>
+      </p>
+      <p>
+        <%= f.password_field :password_confirmation, :class => "form-control", :placeholder => "Confirme sua senha" %>
+      </p>
+      <div class="d-none">
+        <%= f.radio_button :role, :administrator, checked: true %>
+      </div>
+      <%= f.submit "Salvar", :class => "btn btn-default pull-right" %>
+    <% end %>
+  </div>
+</div>

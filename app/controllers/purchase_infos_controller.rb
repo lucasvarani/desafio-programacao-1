@@ -1,5 +1,8 @@
 class PurchaseInfosController < ApplicationController
   before_action :set_purchase_info, only: [:show, :edit, :update, :destroy]
+  access_control do
+      allow :administrator, :all
+  end
 
   # GET /purchase_infos
   # GET /purchase_infos.json

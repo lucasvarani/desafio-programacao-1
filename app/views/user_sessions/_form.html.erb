@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-sm-12 top-space">
+    <%= form_for @user, url: user_session_path, method: :post, html: { class: 'form-horizontal', role: 'form' } do |f| %>
+
+      <p>
+        <%= f.text_field :login, class: 'form-control', placeholder: 'Login' %>
+      </p>
+      <p>
+        <%= f.password_field :password, class: 'form-control', placeholder: 'Senha' %>
+      </p>
+      <p></p>
+      <%= link_to "Criar conta", new_user_path, :class => "btn btn-default text-white" %>
+      <%= f.submit "Entrar", :class => "btn btn-default float-right" %>
+      <br /><br />
+    <% end %>
+  </div>
+</div>

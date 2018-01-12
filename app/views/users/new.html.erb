@@ -1,0 +1,14 @@
+<div class="container my-5 py-5">
+  <div class="row">
+    <div class="col-xs-9">
+      <h1>Novo Usuário</h1>
+    </div>
+  </div>
+  <% if flash[:error] %>
+    <div class="alert alert-danger">
+      <b>Ops!</b>
+      Está faltando alguma coisa
+    </div>
+  <% end %>
+  <%= render "form" %>
+</div>

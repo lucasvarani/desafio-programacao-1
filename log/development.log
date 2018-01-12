@@ -2802,3 +2802,2589 @@ Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 11:48:14 
 
 
 Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 11:48:14 -0200
+
+
+Started GET "/purchase_infos" for 127.0.0.1 at 2018-01-12 11:51:45 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[35m (0.2ms)[0m  SELECT SUM(`purchase_infos`.`item_price`) FROM `purchase_infos`
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM(`purchase_infos`.`purchase_count`) FROM `purchase_infos`[0m
+  [1m[35mPurchaseInfo Load (0.1ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  Rendered purchase_infos/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 45ms (Views: 43.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 11:51:45 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 11:51:45 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 11:51:45 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 11:51:45 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 11:51:45 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUsers (20180112135914)
+  [1m[35m (5.2ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `login` varchar(255), `crypted_password` varchar(255) NOT NULL, `password_salt` varchar(255) NOT NULL, `persistence_token` varchar(255) NOT NULL, `perishable_token` varchar(255) NOT NULL, `login_count` int(11) DEFAULT 0 NOT NULL, `failed_login_count` int(11) DEFAULT 0 NOT NULL, `last_request_at` datetime, `current_login_at` datetime, `last_login_at` datetime, `current_login_ip` varchar(255), `last_login_ip` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20180112135914')
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateRoles (20180112135917)
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /home/lucas/rails/desafio-programacao-1/db/migrate/20180112135917_create_roles.rb:7)
+  [1m[35m (4.6ms)[0m  CREATE TABLE `roles` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(40), `authorizable_type` varchar(40), `authorizable_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20180112135917')
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+Migrating to RolesUser (20180112140129)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to RolesUser (20180112140129)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to RolesUser (20180112140129)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateRolesUser (20180112140129)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateRolesUsers (20180112140129)
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /home/lucas/rails/desafio-programacao-1/db/migrate/20180112140129_create_roles_users.rb:6)
+  [1m[35m (7.7ms)[0m  CREATE TABLE `roles_users` (`user_id` int(11), `role_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20180112140129')
+  [1m[36m (4.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'programmingChallenge'
+  AND fk.table_name = 'purchase_infos'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `purchase_infos`
+  [1m[36m (0.1ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'programmingChallenge'
+  AND fk.table_name = 'roles'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `roles`
+  [1m[36m (0.1ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'programmingChallenge'
+  AND fk.table_name = 'roles_users'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `roles_users`
+  [1m[36m (0.1ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'programmingChallenge'
+  AND fk.table_name = 'users'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `users`
+
+
+Started GET "/purchase_infos" for 127.0.0.1 at 2018-01-12 12:10:23 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+ActionController::RoutingError (undefined method `access_control' for PurchaseInfosController:Class):
+  app/controllers/purchase_infos_controller.rb:3:in `<class:PurchaseInfosController>'
+  app/controllers/purchase_infos_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.6ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (21.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 12:10:28 -0200
+
+ActionController::RoutingError (undefined method `access_control' for PurchaseInfosController:Class):
+  app/controllers/purchase_infos_controller.rb:3:in `<class:PurchaseInfosController>'
+  app/controllers/purchase_infos_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.6ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.8ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (17.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 12:11:10 -0200
+
+ActionController::RoutingError (undefined method `access_control' for PurchaseInfosController:Class):
+  app/controllers/purchase_infos_controller.rb:3:in `<class:PurchaseInfosController>'
+  app/controllers/purchase_infos_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.8ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.8ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (19.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 12:11:26 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by PurchaseInfosController#index as HTML
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `current_user' for #<PurchaseInfosController:0x00000003854fa0>):
+  acl9 (2.1.2) lib/acl9/controller_extensions/generators.rb:109:in `block in to_proc'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:448:in `instance_exec'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:448:in `block in make_lambda'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:164:in `call'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:164:in `block in halting'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:504:in `call'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:504:in `block in call'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:504:in `each'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:504:in `call'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.7) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.7) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.7) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.7) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.7) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.7) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.7) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.7) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.7) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.7) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.7) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.7) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.7) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.7) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.7) lib/action_dispatch/routing/route_set.rb:74:in `call'
+  actionpack (4.2.7) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.7) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.7) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.7) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.7) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.7) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.8) lib/rack/etag.rb:24:in `call'
+  rack (1.6.8) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.8) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.8) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.8) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.7) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.7) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.7) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.7) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.7) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.7) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.7) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.7) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.3.1) lib/request_store/middleware.rb:9:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.7) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.7) lib/rails/engine.rb:518:in `call'
+  railties (4.2.7) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /home/lucas/.rvm/rubies/ruby-2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/lucas/.rvm/rubies/ruby-2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/lucas/.rvm/rubies/ruby-2.2.4/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.9ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (17.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 12:12:06 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+Redirected to http://localhost:3000/login
+Completed 302 Found in 24ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-01-12 12:12:06 -0200
+Processing by UserSessionsController#new as HTML
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+ActionView::MissingTemplate (Missing template layouts/login with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/lucas/rails/desafio-programacao-1/app/views"
+):
+  actionview (4.2.7) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.7) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.7) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.7) lib/action_view/renderer/template_renderer.rb:86:in `resolve_layout'
+  actionview (4.2.7) lib/action_view/renderer/template_renderer.rb:93:in `resolve_layout'
+  actionview (4.2.7) lib/action_view/renderer/template_renderer.rb:76:in `block in find_layout'
+  actionview (4.2.7) lib/action_view/lookup_context.rb:246:in `with_layout_format'
+  actionview (4.2.7) lib/action_view/renderer/abstract_renderer.rb:18:in `with_layout_format'
+  actionview (4.2.7) lib/action_view/renderer/template_renderer.rb:76:in `find_layout'
+  actionview (4.2.7) lib/action_view/renderer/template_renderer.rb:60:in `render_with_layout'
+  actionview (4.2.7) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+  actionview (4.2.7) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (4.2.7) lib/action_view/renderer/renderer.rb:46:in `render_template'
+  actionview (4.2.7) lib/action_view/renderer/renderer.rb:27:in `render'
+  actionview (4.2.7) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.7) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.7) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.7) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.7) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.7) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.7) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.7) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.7) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/lucas/.rvm/rubies/ruby-2.2.4/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.7) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.7) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.7) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.7) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.7) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.7) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.7) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.7) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.7) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.7) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.7) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.7) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.7) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.7) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.7) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.7) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.7) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.7) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.7) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.7) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.7) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.7) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.7) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.7) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.7) lib/action_dispatch/routing/route_set.rb:74:in `call'
+  actionpack (4.2.7) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.7) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.7) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.7) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.7) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.7) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.8) lib/rack/etag.rb:24:in `call'
+  rack (1.6.8) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.8) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.8) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.8) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.7) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.7) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.7) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.7) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.7) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.7) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.7) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.7) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.3.1) lib/request_store/middleware.rb:9:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.7) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.7) lib/rails/engine.rb:518:in `call'
+  railties (4.2.7) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /home/lucas/.rvm/rubies/ruby-2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/lucas/.rvm/rubies/ruby-2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/lucas/.rvm/rubies/ruby-2.2.4/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.2ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (21.5ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-01-12 12:12:30 -0200
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (7.3ms)
+  Rendered user_sessions/new.html.erb within layouts/login (10.3ms)
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (Missing partial layouts/_admin_header with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/lucas/rails/desafio-programacao-1/app/views"
+):
+    10:     <%= csrf_meta_tags %>
+    11:   </head>
+    12:   <body>
+    13:     <%= render '/layouts/admin_header' %>
+    14:     <div class="main-content">
+    15:       <div class="col-xs-12 col-md-12 container-main">
+    16:         <div class="row main-box">
+  app/views/layouts/login.html.erb:13:in `_app_views_layouts_login_html_erb___2221723783399593574_43857180'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.3ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (15.8ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-01-12 12:13:31 -0200
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (0.5ms)
+  Rendered user_sessions/new.html.erb within layouts/login (0.9ms)
+Completed 200 OK in 48ms (Views: 47.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:13:31 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:13:31 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:13:31 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:13:31 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:13:31 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:13:31 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:13:31 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:13:31 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:13:31 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:13:31 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:13:31 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:13:31 -0200
+
+
+Started GET "/login" for 127.0.0.1 at 2018-01-12 12:14:22 -0200
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (0.7ms)
+  Rendered user_sessions/new.html.erb within layouts/login (1.6ms)
+Completed 200 OK in 41ms (Views: 39.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:14:22 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:14:22 -0200
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:14:22 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:14:22 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:14:22 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:14:22 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:14:22 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:14:22 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:14:22 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:14:22 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:14:22 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:14:22 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:14:27 -0200
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:14:27 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:14:27 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:14:27 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:14:27 -0200
+
+
+Started GET "/login" for 127.0.0.1 at 2018-01-12 12:14:49 -0200
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (0.6ms)
+  Rendered user_sessions/new.html.erb within layouts/login (1.0ms)
+Completed 200 OK in 38ms (Views: 37.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:14:49 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:14:49 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:14:49 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:14:49 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:14:49 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:14:49 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:14:49 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:14:49 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:14:49 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:14:49 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:14:49 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:14:49 -0200
+
+
+Started GET "/login" for 127.0.0.1 at 2018-01-12 12:15:04 -0200
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (0.6ms)
+  Rendered user_sessions/new.html.erb within layouts/login (1.1ms)
+Completed 200 OK in 35ms (Views: 34.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:15:04 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:15:04 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:15:04 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:15:04 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:15:04 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:15:04 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:15:04 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:15:04 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:15:04 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:15:04 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:15:04 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:15:04 -0200
+
+
+Started GET "/login" for 127.0.0.1 at 2018-01-12 12:15:39 -0200
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (0.5ms)
+  Rendered user_sessions/new.html.erb within layouts/login (0.8ms)
+Completed 200 OK in 33ms (Views: 32.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:15:39 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:15:39 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:15:39 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:15:39 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:15:39 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:15:39 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:15:39 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:15:39 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:15:39 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:15:39 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:15:39 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:15:39 -0200
+
+
+Started POST "/user_session" for 127.0.0.1 at 2018-01-12 12:15:48 -0200
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lCTUSxS9YfiTkiQLS7GxeHowTHkbXoSF+velpZIEU3YVMKDA+NWT1VpmMpMxXmAYIz7Hyc5EtN+trdkdHxCSVA==", "user"=>{"login"=>"varani.lucas@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`login` = 'varani.lucas@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/user_session/new
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/user_session/new" for 127.0.0.1 at 2018-01-12 12:15:48 -0200
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (0.6ms)
+  Rendered user_sessions/new.html.erb within layouts/login (1.0ms)
+Completed 200 OK in 41ms (Views: 40.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:15:48 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:15:48 -0200
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:15:48 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:15:48 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:15:48 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:15:48 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:15:48 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:15:48 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:15:48 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:15:48 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:15:48 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:15:48 -0200
+
+
+Started GET "/user_session/new" for 127.0.0.1 at 2018-01-12 12:16:19 -0200
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (0.9ms)
+  Rendered user_sessions/new.html.erb within layouts/login (1.3ms)
+Completed 200 OK in 37ms (Views: 36.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:16:19 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:16:19 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:16:19 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:16:19 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:16:19 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:16:19 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:16:19 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:16:19 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:16:19 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:16:19 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:16:19 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:16:19 -0200
+
+
+Started GET "/user_session/new" for 127.0.0.1 at 2018-01-12 12:17:10 -0200
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (8.6ms)
+  Rendered user_sessions/new.html.erb within layouts/login (9.1ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined local variable or method `new_user_path' for #<#<Class:0x00000003224e50>:0x00000004ea8a18>):
+    10:       </p>
+    11:       <p></p>
+    12:       <%= f.submit "Entrar", :class => "btn btn-default" %>
+    13:       <%= link_to "Criar conta", new_user_path, :class => "btn btn-default float-right" %>
+    14:       <br /><br />
+    15:     <% end %>
+    16:   </div>
+  app/views/user_sessions/_form.html.erb:13:in `block in _app_views_user_sessions__form_html_erb__2843533138120374920_41193940'
+  app/views/user_sessions/_form.html.erb:3:in `_app_views_user_sessions__form_html_erb__2843533138120374920_41193940'
+  app/views/user_sessions/new.html.erb:7:in `_app_views_user_sessions_new_html_erb__3437766416374413458_39714640'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.3ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (17.1ms)
+
+
+Started GET "/user_session/new" for 127.0.0.1 at 2018-01-12 12:17:56 -0200
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (0.8ms)
+  Rendered user_sessions/new.html.erb within layouts/login (1.2ms)
+Completed 200 OK in 44ms (Views: 33.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:17:56 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:17:56 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:17:56 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:17:56 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:17:56 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:17:56 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:17:56 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:17:56 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:17:56 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:17:56 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:17:56 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:17:56 -0200
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-01-12 12:17:58 -0200
+
+ActionController::RoutingError (uninitialized constant Admin):
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.0ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (22.1ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-01-12 12:18:25 -0200
+
+ActionController::RoutingError (uninitialized constant Admin):
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.2ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (25.4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-01-12 12:18:37 -0200
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.9ms)
+
+ActionView::MissingTemplate (Missing template users/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/lucas/rails/desafio-programacao-1/app/views"
+):
+  actionview (4.2.7) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.7) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.7) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.7) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.7) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.7) lib/action_view/renderer/renderer.rb:46:in `render_template'
+  actionview (4.2.7) lib/action_view/renderer/renderer.rb:27:in `render'
+  actionview (4.2.7) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.7) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.7) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.7) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.7) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.7) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.7) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.7) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.7) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/lucas/.rvm/rubies/ruby-2.2.4/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.7) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.7) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.7) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.7) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.7) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.7) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.7) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.7) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.7) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.7) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.7) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.7) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.7) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.7) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.7) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.7) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.7) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.7) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.7) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.7) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.7) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.7) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.7) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.7) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.7) lib/action_dispatch/routing/route_set.rb:74:in `call'
+  actionpack (4.2.7) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.7) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.7) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.7) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.7) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.7) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.8) lib/rack/etag.rb:24:in `call'
+  rack (1.6.8) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.8) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.8) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.8) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.7) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.7) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.7) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.7) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.7) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.7) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.7) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.7) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.3.1) lib/request_store/middleware.rb:9:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.7) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.7) lib/rails/engine.rb:518:in `call'
+  railties (4.2.7) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /home/lucas/.rvm/rubies/ruby-2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/lucas/.rvm/rubies/ruby-2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/lucas/.rvm/rubies/ruby-2.2.4/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.6ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (14.9ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-01-12 12:19:42 -0200
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.8ms)
+
+ActionView::MissingTemplate (Missing template users/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/lucas/rails/desafio-programacao-1/app/views"
+):
+  actionview (4.2.7) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.7) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.7) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.7) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.7) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.7) lib/action_view/renderer/renderer.rb:46:in `render_template'
+  actionview (4.2.7) lib/action_view/renderer/renderer.rb:27:in `render'
+  actionview (4.2.7) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.7) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.7) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.7) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.7) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.7) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.7) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.7) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.7) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/lucas/.rvm/rubies/ruby-2.2.4/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.7) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.7) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.7) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.7) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.7) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (4.2.7) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.7) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.7) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.7) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.7) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.7) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.7) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.7) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.7) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.7) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.7) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.7) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.7) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.7) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.7) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.7) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.7) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.7) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.7) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.7) lib/action_dispatch/routing/route_set.rb:74:in `call'
+  actionpack (4.2.7) lib/action_dispatch/routing/route_set.rb:74:in `dispatch'
+  actionpack (4.2.7) lib/action_dispatch/routing/route_set.rb:43:in `serve'
+  actionpack (4.2.7) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.7) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.7) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.7) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.8) lib/rack/etag.rb:24:in `call'
+  rack (1.6.8) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.8) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.8) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.8) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.7) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.7) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.7) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.7) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.7) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.7) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.7) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.7) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.7) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.7) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.3.1) lib/request_store/middleware.rb:9:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.7) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.7) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.7) lib/rails/engine.rb:518:in `call'
+  railties (4.2.7) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /home/lucas/.rvm/rubies/ruby-2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/lucas/.rvm/rubies/ruby-2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/lucas/.rvm/rubies/ruby-2.2.4/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.6ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (14.7ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-01-12 12:20:42 -0200
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (Missing partial users/_form, application/_form with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/lucas/rails/desafio-programacao-1/app/views"
+):
+     9:     Está faltando alguma coisa
+    10:   </div>
+    11: <% end %>
+    12: <%= render "form" %>
+  app/views/users/new.html.erb:12:in `_app_views_users_new_html_erb___4586575064646038904_28046180'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.4ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (19.3ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-01-12 12:23:56 -0200
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/new.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+SyntaxError (/home/lucas/rails/desafio-programacao-1/app/views/users/_form.html.erb:27: syntax error, unexpected keyword_ensure, expecting keyword_end
+/home/lucas/rails/desafio-programacao-1/app/views/users/_form.html.erb:29: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/users/_form.html.erb:27: syntax error, unexpected keyword_ensure, expecting keyword_end
+  app/views/users/_form.html.erb:29: syntax error, unexpected end-of-input, expecting keyword_end
+  app/views/users/new.html.erb:12:in `_app_views_users_new_html_erb___4586575064646038904_28046180'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.6ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (16.3ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-01-12 12:24:16 -0200
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (10.2ms)
+  Rendered users/new.html.erb within layouts/application (10.6ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `admin_users_path' for #<#<Class:0x00000003871dd0>:0x000000034cfd80>):
+    1: <div class="row">
+    2:   <div class="col-sm-12 top-space a">
+    3:     <%= form_for [:admin, @user], role: "form" do |f| %>
+    4:       <!-- = f.error_messages
+    5:       -->
+    6:       <p>
+  app/views/users/_form.html.erb:3:in `_app_views_users__form_html_erb___4585076611373129614_27601140'
+  app/views/users/new.html.erb:12:in `_app_views_users_new_html_erb___4586575064646038904_28046180'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.8ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (16.2ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-01-12 12:24:22 -0200
+Processing by UsersController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  Rendered users/_form.html.erb (4.7ms)
+  Rendered users/new.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.1ms)
+
+ActionView::Template::Error (undefined method `has_role?' for nil:NilClass):
+    16:         <%= f.password_field :password_confirmation, :class => "form-control", :placeholder => "Confirme sua senha" %>
+    17:       </p>
+    18:       <div class="d-none">
+    19:         <% if current_user.has_role?(:administrator) %>
+    20:           <%= f.radio_button :role, :administrator, checked: true %>
+    21:           <%= f.submit "Salvar", :class => "btn btn-default pull-right" %>
+    22:         <% end %>
+  app/views/users/_form.html.erb:19:in `block in _app_views_users__form_html_erb___4585076611373129614_41003340'
+  app/views/users/_form.html.erb:3:in `_app_views_users__form_html_erb___4585076611373129614_41003340'
+  app/views/users/new.html.erb:12:in `_app_views_users_new_html_erb___4586575064646038904_28046180'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.5ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.7ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (20.6ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-01-12 12:24:40 -0200
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (4.3ms)
+  Rendered users/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 47ms (Views: 46.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:24:40 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:24:40 -0200
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:24:40 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:24:40 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:24:40 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:24:40 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:24:40 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:24:40 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:24:40 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:24:40 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:24:40 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:24:40 -0200
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-01-12 12:25:06 -0200
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (0.8ms)
+  Rendered users/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 43ms (Views: 42.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:25:06 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:25:06 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:25:06 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:25:06 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:25:06 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:25:06 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:25:06 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:25:06 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:25:06 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:25:06 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:25:06 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:25:06 -0200
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-01-12 12:25:16 -0200
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.0ms)
+  Rendered users/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 45ms (Views: 44.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:25:16 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:25:16 -0200
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:25:16 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:25:16 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:25:16 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:25:16 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:25:16 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:25:16 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:25:16 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:25:16 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:25:16 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:25:16 -0200
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-01-12 12:25:30 -0200
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.1ms)
+  Rendered users/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 50ms (Views: 49.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:25:30 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:25:30 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:25:30 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:25:30 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:25:30 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:25:30 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:25:30 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:25:30 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:25:30 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:25:30 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:25:30 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:25:30 -0200
+
+
+Started POST "/users" for 127.0.0.1 at 2018-01-12 12:26:39 -0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"V48tHz0owFbYzkSBYNSRF9pFxIhl1DivU/5kAILFb9XWm1mU0UAyexE6UhkaO0B3g0tPOLDOCPUEpBi4D9Gu9w==", "user"=>{"login"=>"lucas", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "role"=>"administrator"}, "commit"=>"Salvar"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`login` = 'lucas' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`persistence_token` = BINARY 'b85f8fcf7b9ba85b15cf9d757495c17bc6ccfd23517f2bfaf81724ef38d8d6812573be0d34affc8e79d1a5eb4c689c0c7fb688157679395c8b0cfba976828672' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`login`, `password_salt`, `crypted_password`, `persistence_token`, `perishable_token`, `login_count`, `current_login_at`, `current_login_ip`, `last_request_at`, `created_at`, `updated_at`) VALUES ('lucas', '0atSSt375Kt6OA4pgbm', '400$8$4e$99f5e4c5c2222fa3$36516e97bc1b5a2d0fd76e1cf5357f0263e56ffa0373d5f783c8fceac582fc6d', 'b85f8fcf7b9ba85b15cf9d757495c17bc6ccfd23517f2bfaf81724ef38d8d6812573be0d34affc8e79d1a5eb4c689c0c7fb688157679395c8b0cfba976828672', '2iKteKFlfNlmS5ENopx', 1, '2018-01-12 14:26:39', '127.0.0.1', '2018-01-12 14:26:39', '2018-01-12 14:26:39', '2018-01-12 14:26:39')[0m
+  [1m[35mRole Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 1
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT  `roles`.* FROM `roles` WHERE (name = 'administrator' and authorizable_type IS NULL and authorizable_id IS NULL)  ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `roles` (`name`, `created_at`, `updated_at`) VALUES ('administrator', '2018-01-12 14:26:39', '2018-01-12 14:26:39')
+  [1m[36mRole Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 1 AND `roles`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `roles_users` (`user_id`, `role_id`, `created_at`, `updated_at`) VALUES (1, 1, '2018-01-12 14:26:39', '2018-01-12 14:26:39')
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 230ms (ActiveRecord: 5.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 12:26:39 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`persistence_token` = 'b85f8fcf7b9ba85b15cf9d757495c17bc6ccfd23517f2bfaf81724ef38d8d6812573be0d34affc8e79d1a5eb4c689c0c7fb688157679395c8b0cfba976828672' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2018-01-12 14:26:39', `perishable_token` = 'wBI1fE9lzQyl95pLCPH', `updated_at` = '2018-01-12 14:26:39' WHERE `users`.`id` = 1[0m
+  [1m[35m (1.7ms)[0m  COMMIT
+  [1m[36mRole Load (0.3ms)[0m  [1mSELECT  `roles`.* FROM `roles` WHERE (name = 'administrator' and authorizable_type IS NULL and authorizable_id IS NULL)  ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  [1m[35mRole Exists (0.2ms)[0m  SELECT  1 AS one FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 1 AND `roles`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM(`purchase_infos`.`item_price`) FROM `purchase_infos`[0m
+  [1m[35m (0.1ms)[0m  SELECT SUM(`purchase_infos`.`purchase_count`) FROM `purchase_infos`
+  [1m[36mPurchaseInfo Load (0.2ms)[0m  [1mSELECT `purchase_infos`.* FROM `purchase_infos`[0m
+  Rendered purchase_infos/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 101ms (Views: 88.1ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:26:39 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:26:39 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:26:39 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:26:39 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:26:39 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:26:39 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:26:39 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:26:39 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:26:39 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:26:39 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:26:39 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:26:39 -0200
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 12:27:33 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2018-01-12 14:27:33', `perishable_token` = '8xPelj2YhaQFslp6MBY', `updated_at` = '2018-01-12 14:27:33' WHERE `users`.`id` = 1[0m
+  [1m[35m (3.3ms)[0m  COMMIT
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT  `roles`.* FROM `roles` WHERE (name = 'administrator' and authorizable_type IS NULL and authorizable_id IS NULL)  ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  [1m[35mRole Exists (0.1ms)[0m  SELECT  1 AS one FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 1 AND `roles`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM(`purchase_infos`.`item_price`) FROM `purchase_infos`[0m
+  [1m[35m (0.1ms)[0m  SELECT SUM(`purchase_infos`.`purchase_count`) FROM `purchase_infos`
+  [1m[36mPurchaseInfo Load (0.1ms)[0m  [1mSELECT `purchase_infos`.* FROM `purchase_infos`[0m
+  Rendered purchase_infos/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 89ms (Views: 50.8ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:27:33 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:27:33 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:27:33 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:27:33 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:27:33 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:27:33 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:27:33 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:27:33 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:27:33 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:27:33 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:27:33 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:27:33 -0200
+
+
+Started GET "/login" for 127.0.0.1 at 2018-01-12 12:27:36 -0200
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (0.8ms)
+  Rendered user_sessions/new.html.erb within layouts/login (1.2ms)
+Completed 200 OK in 36ms (Views: 34.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:27:36 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:27:36 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:27:36 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:27:36 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:27:36 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:27:36 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:27:36 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:27:36 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:27:36 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:27:36 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:27:36 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:27:36 -0200
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-01-12 12:27:39 -0200
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.2ms)
+  Rendered users/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 43ms (Views: 42.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:27:39 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:27:39 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:27:39 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:27:39 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:27:39 -0200
+
+
+Started POST "/users" for 127.0.0.1 at 2018-01-12 12:27:44 -0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BNYYPbie7RmSWx/t8Mo7iAaggAo6eaKACdHac47l8oaFwmy2VPYfNFuvCXWKJeroX64Luu9jktpei6bLA/EzpA==", "user"=>{"login"=>"lucas", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "role"=>"administrator"}, "commit"=>"Salvar"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`login` = 'lucas' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`persistence_token` = BINARY 'e776cc270d3f581d6a3ddc93aeb263a47280bd17f14c675f5d4fb15ad183d009547913acbc62cf7ac07b620b42a2bd03498651308fdea15f0bf666e43485f8bc' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  Rendered users/_form.html.erb (0.6ms)
+  Rendered users/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 181ms (Views: 38.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:27:44 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:27:44 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:27:44 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:27:44 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:27:44 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:27:44 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:27:44 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:27:44 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:27:44 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:27:44 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:27:44 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:27:44 -0200
+
+
+Started POST "/users" for 127.0.0.1 at 2018-01-12 12:28:04 -0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ed8YYhjbQ0lSQENBP31VbheAYxnCr5V1yBlxikMyQRyQy2zp9LOxZJu0VdlFkoQOTo7oqRe1pS+fQw0yziaAPg==", "user"=>{"login"=>"lucas", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "role"=>"administrator"}, "commit"=>"Salvar"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`login` = 'lucas' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`persistence_token` = BINARY 'a652e10288cf83e7a4be35d031e9a118ab40ee89c42853feae555ad36efbae6cb086f6c9e3ded737d259059e49966943673010626be4afd51b0336a093761890' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`login`, `password_salt`, `crypted_password`, `persistence_token`, `perishable_token`, `login_count`, `current_login_at`, `current_login_ip`, `last_request_at`, `created_at`, `updated_at`) VALUES ('lucas', 'eZQFv5Gemso1IDrvGORS', '400$8$3f$51fc68d2490a0963$acbc1a953735e2c6149d6f8f7fc0380bdd6255f601295862d0c3d2a76ea9d1a0', 'a652e10288cf83e7a4be35d031e9a118ab40ee89c42853feae555ad36efbae6cb086f6c9e3ded737d259059e49966943673010626be4afd51b0336a093761890', 'mu18CwHsTrzXimcwQKF2', 1, '2018-01-12 14:28:04', '127.0.0.1', '2018-01-12 14:28:04', '2018-01-12 14:28:04', '2018-01-12 14:28:04')[0m
+  [1m[35mRole Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 2
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT  `roles`.* FROM `roles` WHERE (name = 'administrator' and authorizable_type IS NULL and authorizable_id IS NULL)  ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  [1m[35mRole Exists (0.2ms)[0m  SELECT  1 AS one FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 2 AND `roles`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `roles_users` (`user_id`, `role_id`, `created_at`, `updated_at`) VALUES (2, 1, '2018-01-12 14:28:04', '2018-01-12 14:28:04')[0m
+  [1m[35m (1.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/logout
+Completed 302 Found in 133ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2018-01-12 12:28:04 -0200
+Processing by UserSessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`persistence_token` = 'a652e10288cf83e7a4be35d031e9a118ab40ee89c42853feae555ad36efbae6cb086f6c9e3ded737d259059e49966943673010626be4afd51b0336a093761890' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `last_request_at` = '2018-01-12 14:28:04', `perishable_token` = 'i6QEFYCYuaOrucofbI1q', `updated_at` = '2018-01-12 14:28:04' WHERE `users`.`id` = 2
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/user_session/new
+Completed 302 Found in 7ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/user_session/new" for 127.0.0.1 at 2018-01-12 12:28:04 -0200
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (0.6ms)
+  Rendered user_sessions/new.html.erb within layouts/login (1.1ms)
+Completed 200 OK in 42ms (Views: 40.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:28:04 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:28:04 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:28:04 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:28:04 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:28:04 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:28:04 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:28:04 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:28:04 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:28:04 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:28:04 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:28:04 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:28:04 -0200
+
+
+Started POST "/user_session" for 127.0.0.1 at 2018-01-12 12:28:11 -0200
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9ZrrpD+/1ELkXIavZcMEdoFVLGzdKmjPNwDTUFqh0lB0jp8v09cmby2okDcfLNUW2Fun3AgwWJVgWq/o17UTcg==", "user"=>{"login"=>"lucas", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`login` = 'lucas'  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `login_count` = 2, `last_login_at` = '2018-01-12 14:28:04', `current_login_at` = '2018-01-12 14:28:12', `last_login_ip` = '127.0.0.1', `last_request_at` = '2018-01-12 14:28:12', `perishable_token` = 'dQq1eXf9yt6IaA92rXC', `updated_at` = '2018-01-12 14:28:12' WHERE `users`.`id` = 2
+  [1m[36m (3.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 121ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 12:28:12 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `last_request_at` = '2018-01-12 14:28:12', `perishable_token` = 'JQLdafIH16G3Ounf6Aq', `updated_at` = '2018-01-12 14:28:12' WHERE `users`.`id` = 2
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (0.2ms)[0m  SELECT  `roles`.* FROM `roles` WHERE (name = 'administrator' and authorizable_type IS NULL and authorizable_id IS NULL)  ORDER BY `roles`.`id` ASC LIMIT 1
+  [1m[36mRole Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 2 AND `roles`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT SUM(`purchase_infos`.`item_price`) FROM `purchase_infos`
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM(`purchase_infos`.`purchase_count`) FROM `purchase_infos`[0m
+  [1m[35mPurchaseInfo Load (0.1ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  Rendered purchase_infos/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 51ms (Views: 42.4ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:28:12 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:28:12 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:28:12 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:28:12 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:28:12 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:28:12 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:28:12 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:28:12 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:28:12 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:28:12 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:28:12 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:28:12 -0200
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 12:28:57 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2018-01-12 14:28:57', `perishable_token` = 'OW84tHUzP7dLjFD4BHW', `updated_at` = '2018-01-12 14:28:57' WHERE `users`.`id` = 2[0m
+  [1m[35m (3.2ms)[0m  COMMIT
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT  `roles`.* FROM `roles` WHERE (name = 'administrator' and authorizable_type IS NULL and authorizable_id IS NULL)  ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  [1m[35mRole Exists (0.1ms)[0m  SELECT  1 AS one FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 2 AND `roles`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM(`purchase_infos`.`item_price`) FROM `purchase_infos`[0m
+  [1m[35m (0.1ms)[0m  SELECT SUM(`purchase_infos`.`purchase_count`) FROM `purchase_infos`
+  [1m[36mPurchaseInfo Load (0.1ms)[0m  [1mSELECT `purchase_infos`.* FROM `purchase_infos`[0m
+  Rendered purchase_infos/index.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 4.1ms)
+
+ActionView::Template::Error (undefined method `+' for nil:NilClass):
+    10:   <%= csrf_meta_tags %>
+    11: </head>
+    12: <body>
+    13: <%= current_user ? raw(current_user.name+" / "+link_to("Sair", logout_path)) : raw(link_to("Entrar", login_path)+" / "+link_to("Registrar", register_path)) %>
+    14: <%= yield %>
+    15:   <%= javascript_include_tag "https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js" %>
+    16:   <%= javascript_include_tag "bootstrap-filestyle" %>
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb___419131826827646404_69987640338660'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.5ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (15.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 12:29:17 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `last_request_at` = '2018-01-12 14:29:17', `perishable_token` = '6agVAmIYPfDCWJEeR3b', `updated_at` = '2018-01-12 14:29:17' WHERE `users`.`id` = 2
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT  `roles`.* FROM `roles` WHERE (name = 'administrator' and authorizable_type IS NULL and authorizable_id IS NULL)  ORDER BY `roles`.`id` ASC LIMIT 1
+  [1m[36mRole Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 2 AND `roles`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT SUM(`purchase_infos`.`item_price`) FROM `purchase_infos`
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM(`purchase_infos`.`purchase_count`) FROM `purchase_infos`[0m
+  [1m[35mPurchaseInfo Load (0.1ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  Rendered purchase_infos/index.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 3.0ms)
+
+SyntaxError (/home/lucas/rails/desafio-programacao-1/app/views/layouts/application.html.erb:13: syntax error, unexpected ')', expecting keyword_end
+... link_to("Sair", logout_path)));@output_buffer.safe_append='
+...                               ^):
+  app/views/layouts/application.html.erb:13: syntax error, unexpected ')', expecting keyword_end
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.0ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (15.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 12:29:23 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2018-01-12 14:29:23', `perishable_token` = '1unFR2kuyTb5nEoCE8cy', `updated_at` = '2018-01-12 14:29:23' WHERE `users`.`id` = 2[0m
+  [1m[35m (3.2ms)[0m  COMMIT
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT  `roles`.* FROM `roles` WHERE (name = 'administrator' and authorizable_type IS NULL and authorizable_id IS NULL)  ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  [1m[35mRole Exists (0.1ms)[0m  SELECT  1 AS one FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 2 AND `roles`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM(`purchase_infos`.`item_price`) FROM `purchase_infos`[0m
+  [1m[35m (0.1ms)[0m  SELECT SUM(`purchase_infos`.`purchase_count`) FROM `purchase_infos`
+  [1m[36mPurchaseInfo Load (0.1ms)[0m  [1mSELECT `purchase_infos`.* FROM `purchase_infos`[0m
+  Rendered purchase_infos/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 51ms (Views: 41.0ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:29:23 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:29:23 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:29:23 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:29:23 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:29:23 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:29:23 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:29:23 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:29:23 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:29:23 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:29:23 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:29:23 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:29:23 -0200
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 12:29:40 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `last_request_at` = '2018-01-12 14:29:40', `perishable_token` = 'RFmUDvoPQ6VF8J1kew0', `updated_at` = '2018-01-12 14:29:40' WHERE `users`.`id` = 2
+  [1m[36m (3.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT  `roles`.* FROM `roles` WHERE (name = 'administrator' and authorizable_type IS NULL and authorizable_id IS NULL)  ORDER BY `roles`.`id` ASC LIMIT 1
+  [1m[36mRole Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 2 AND `roles`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT SUM(`purchase_infos`.`item_price`) FROM `purchase_infos`
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM(`purchase_infos`.`purchase_count`) FROM `purchase_infos`[0m
+  [1m[35mPurchaseInfo Load (0.1ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  Rendered purchase_infos/index.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 4.4ms)
+
+SyntaxError (/home/lucas/rails/desafio-programacao-1/app/views/layouts/application.html.erb:13: syntax error, unexpected ',', expecting ')'
+...( link_to("Sair", logout_path), :class => "btn btn-default p...
+...                               ^):
+  app/views/layouts/application.html.erb:13: syntax error, unexpected ',', expecting ')'
+
+
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.3ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/lucas/.rvm/gems/ruby-2.2.4/gems/actionpack-4.2.7/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (16.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 12:29:46 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2018-01-12 14:29:46', `perishable_token` = 'v6jS36fBpkEoW4OBrdKq', `updated_at` = '2018-01-12 14:29:46' WHERE `users`.`id` = 2[0m
+  [1m[35m (1.9ms)[0m  COMMIT
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT  `roles`.* FROM `roles` WHERE (name = 'administrator' and authorizable_type IS NULL and authorizable_id IS NULL)  ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  [1m[35mRole Exists (0.1ms)[0m  SELECT  1 AS one FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 2 AND `roles`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM(`purchase_infos`.`item_price`) FROM `purchase_infos`[0m
+  [1m[35m (0.1ms)[0m  SELECT SUM(`purchase_infos`.`purchase_count`) FROM `purchase_infos`
+  [1m[36mPurchaseInfo Load (0.1ms)[0m  [1mSELECT `purchase_infos`.* FROM `purchase_infos`[0m
+  Rendered purchase_infos/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 53ms (Views: 44.3ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:29:47 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:29:47 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:29:47 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:29:47 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:29:47 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:29:47 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:29:47 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:29:47 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:29:47 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:29:47 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:29:47 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:29:47 -0200
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 12:29:57 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE `users` SET `last_request_at` = '2018-01-12 14:29:57', `perishable_token` = 'cBnNk1L9BopcmlhyGQz7', `updated_at` = '2018-01-12 14:29:57' WHERE `users`.`id` = 2
+  [1m[36m (3.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (0.2ms)[0m  SELECT  `roles`.* FROM `roles` WHERE (name = 'administrator' and authorizable_type IS NULL and authorizable_id IS NULL)  ORDER BY `roles`.`id` ASC LIMIT 1
+  [1m[36mRole Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 2 AND `roles`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT SUM(`purchase_infos`.`item_price`) FROM `purchase_infos`
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM(`purchase_infos`.`purchase_count`) FROM `purchase_infos`[0m
+  [1m[35mPurchaseInfo Load (0.1ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  Rendered purchase_infos/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 50ms (Views: 40.3ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:29:57 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:29:57 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:29:57 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:29:57 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:29:57 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:29:57 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:29:57 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:29:57 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:29:57 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:29:57 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:29:57 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:29:57 -0200
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 12:30:04 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2018-01-12 14:30:04', `perishable_token` = 'dOI3YRRm3Vwv54gSk6', `updated_at` = '2018-01-12 14:30:04' WHERE `users`.`id` = 2[0m
+  [1m[35m (3.1ms)[0m  COMMIT
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT  `roles`.* FROM `roles` WHERE (name = 'administrator' and authorizable_type IS NULL and authorizable_id IS NULL)  ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  [1m[35mRole Exists (0.1ms)[0m  SELECT  1 AS one FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 2 AND `roles`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM(`purchase_infos`.`item_price`) FROM `purchase_infos`[0m
+  [1m[35m (0.1ms)[0m  SELECT SUM(`purchase_infos`.`purchase_count`) FROM `purchase_infos`
+  [1m[36mPurchaseInfo Load (0.1ms)[0m  [1mSELECT `purchase_infos`.* FROM `purchase_infos`[0m
+  Rendered purchase_infos/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 46ms (Views: 36.0ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:30:04 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:30:04 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:30:04 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:30:04 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:30:04 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:30:04 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:30:04 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:30:04 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:30:04 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:30:04 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:30:04 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:30:04 -0200
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 12:30:10 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `last_request_at` = '2018-01-12 14:30:10', `perishable_token` = 'vOM1O9ukcVjfSZ9rZE', `updated_at` = '2018-01-12 14:30:10' WHERE `users`.`id` = 2
+  [1m[36m (3.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (0.2ms)[0m  SELECT  `roles`.* FROM `roles` WHERE (name = 'administrator' and authorizable_type IS NULL and authorizable_id IS NULL)  ORDER BY `roles`.`id` ASC LIMIT 1
+  [1m[36mRole Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 2 AND `roles`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT SUM(`purchase_infos`.`item_price`) FROM `purchase_infos`
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM(`purchase_infos`.`purchase_count`) FROM `purchase_infos`[0m
+  [1m[35mPurchaseInfo Load (0.2ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  Rendered purchase_infos/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 57ms (Views: 47.4ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:30:10 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:30:10 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:30:10 -0200
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:30:10 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:30:10 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:30:10 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:30:10 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:30:10 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:30:10 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:30:10 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:30:10 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:30:10 -0200
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 12:30:27 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2018-01-12 14:30:27', `perishable_token` = 'JG6ZkrqSteQElKmh1jk', `updated_at` = '2018-01-12 14:30:27' WHERE `users`.`id` = 2[0m
+  [1m[35m (3.1ms)[0m  COMMIT
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT  `roles`.* FROM `roles` WHERE (name = 'administrator' and authorizable_type IS NULL and authorizable_id IS NULL)  ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  [1m[35mRole Exists (0.1ms)[0m  SELECT  1 AS one FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 2 AND `roles`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM(`purchase_infos`.`item_price`) FROM `purchase_infos`[0m
+  [1m[35m (0.1ms)[0m  SELECT SUM(`purchase_infos`.`purchase_count`) FROM `purchase_infos`
+  [1m[36mPurchaseInfo Load (0.1ms)[0m  [1mSELECT `purchase_infos`.* FROM `purchase_infos`[0m
+  Rendered purchase_infos/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 50ms (Views: 40.2ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:30:27 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:30:27 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:30:27 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:30:27 -0200
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:30:27 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:30:27 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:30:27 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:30:27 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:30:27 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:30:27 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:30:27 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:30:27 -0200
+
+
+Started GET "/logout" for 127.0.0.1 at 2018-01-12 12:30:59 -0200
+Processing by UserSessionsController#destroy as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `last_request_at` = '2018-01-12 14:30:59', `perishable_token` = 'F5JTQvFkhh8FafRQhqs', `updated_at` = '2018-01-12 14:30:59' WHERE `users`.`id` = 2
+  [1m[36m (11.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/user_session/new
+Completed 302 Found in 16ms (ActiveRecord: 12.0ms)
+
+
+Started GET "/user_session/new" for 127.0.0.1 at 2018-01-12 12:30:59 -0200
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (1.2ms)
+  Rendered user_sessions/new.html.erb within layouts/login (1.6ms)
+Completed 200 OK in 29ms (Views: 28.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:30:59 -0200
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:30:59 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:30:59 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:30:59 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:30:59 -0200
+
+
+Started GET "/user_session/new" for 127.0.0.1 at 2018-01-12 12:31:11 -0200
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (0.4ms)
+  Rendered user_sessions/new.html.erb within layouts/login (0.9ms)
+Completed 200 OK in 35ms (Views: 35.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:31:11 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:31:11 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:31:11 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:31:11 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:31:11 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:31:11 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:31:11 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:31:11 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:31:11 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:31:11 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:31:11 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:31:11 -0200
+
+
+Started POST "/user_session" for 127.0.0.1 at 2018-01-12 12:31:17 -0200
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KWMu2D6UBJJibYBM+PnHPcxGvoVsTj17OeJup2lbjLeod1pT0vz2v6uZltSCFhZdlUg1NblUDSFuuBIf5E9NlQ==", "user"=>{"login"=>"lucas", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`login` = 'lucas'  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `login_count` = 3, `last_login_at` = '2018-01-12 14:28:12', `current_login_at` = '2018-01-12 14:31:17', `last_request_at` = '2018-01-12 14:31:17', `perishable_token` = 'C4iKaoqTtOcwQ8F46V8', `updated_at` = '2018-01-12 14:31:17' WHERE `users`.`id` = 2
+  [1m[36m (3.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 122ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 12:31:17 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `last_request_at` = '2018-01-12 14:31:17', `perishable_token` = 'xm54tGVPaObn8ca17v7w', `updated_at` = '2018-01-12 14:31:17' WHERE `users`.`id` = 2
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (0.2ms)[0m  SELECT  `roles`.* FROM `roles` WHERE (name = 'administrator' and authorizable_type IS NULL and authorizable_id IS NULL)  ORDER BY `roles`.`id` ASC LIMIT 1
+  [1m[36mRole Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 2 AND `roles`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT SUM(`purchase_infos`.`item_price`) FROM `purchase_infos`
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM(`purchase_infos`.`purchase_count`) FROM `purchase_infos`[0m
+  [1m[35mPurchaseInfo Load (0.1ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  Rendered purchase_infos/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 59ms (Views: 49.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:31:17 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:31:17 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:31:17 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:31:17 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:31:17 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:31:17 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:31:17 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:31:17 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:31:17 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:31:17 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:31:17 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:31:17 -0200
+
+
+Started GET "/logout" for 127.0.0.1 at 2018-01-12 12:31:29 -0200
+Processing by UserSessionsController#destroy as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2018-01-12 14:31:29', `perishable_token` = '30Vu7l7wLhTesZszDaK', `updated_at` = '2018-01-12 14:31:29' WHERE `users`.`id` = 2[0m
+  [1m[35m (3.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/user_session/new
+Completed 302 Found in 11ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/user_session/new" for 127.0.0.1 at 2018-01-12 12:31:29 -0200
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (0.9ms)
+  Rendered user_sessions/new.html.erb within layouts/login (1.4ms)
+Completed 200 OK in 35ms (Views: 34.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:31:29 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:31:29 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:31:29 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:31:29 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:31:29 -0200
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-01-12 12:31:32 -0200
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.1ms)
+  Rendered users/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 37ms (Views: 36.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/user_session/new" for 127.0.0.1 at 2018-01-12 12:31:54 -0200
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (0.6ms)
+  Rendered user_sessions/new.html.erb within layouts/login (1.2ms)
+Completed 200 OK in 32ms (Views: 31.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/user_session/new" for 127.0.0.1 at 2018-01-12 12:31:54 -0200
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (0.8ms)
+  Rendered user_sessions/new.html.erb within layouts/login (1.3ms)
+Completed 200 OK in 67ms (Views: 63.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_session" for 127.0.0.1 at 2018-01-12 12:31:56 -0200
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fSoKfeAPH3BNmILDbP7qbLIojOWeHw/x/h2S/z50qaz8Pn72DGftXYRslFsWETsM6yYHVUsFP6upR+5Hs2Bojg==", "user"=>{"login"=>"lucas", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`login` = 'lucas'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE `users` SET `login_count` = 4, `last_login_at` = '2018-01-12 14:31:17', `current_login_at` = '2018-01-12 14:31:56', `last_request_at` = '2018-01-12 14:31:56', `perishable_token` = 'BHQUtCZZx1NxPgZlLCz', `updated_at` = '2018-01-12 14:31:56' WHERE `users`.`id` = 2[0m
+  [1m[35m (3.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 123ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 12:31:56 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2018-01-12 14:31:56', `perishable_token` = 'ydIIpfdefSuHl6VH1nE', `updated_at` = '2018-01-12 14:31:56' WHERE `users`.`id` = 2[0m
+  [1m[35m (1.7ms)[0m  COMMIT
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT  `roles`.* FROM `roles` WHERE (name = 'administrator' and authorizable_type IS NULL and authorizable_id IS NULL)  ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  [1m[35mRole Exists (0.1ms)[0m  SELECT  1 AS one FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 2 AND `roles`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM(`purchase_infos`.`item_price`) FROM `purchase_infos`[0m
+  [1m[35m (0.1ms)[0m  SELECT SUM(`purchase_infos`.`purchase_count`) FROM `purchase_infos`
+  [1m[36mPurchaseInfo Load (0.1ms)[0m  [1mSELECT `purchase_infos`.* FROM `purchase_infos`[0m
+  Rendered purchase_infos/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 49ms (Views: 40.6ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:31:57 -0200
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:31:57 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:31:57 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:31:57 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:31:57 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:31:57 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:31:57 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:31:57 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:31:57 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:31:57 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:31:57 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:31:57 -0200
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 12:32:10 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `last_request_at` = '2018-01-12 14:32:10', `perishable_token` = 'q5Vbl5ebWZjWAh439Qh', `updated_at` = '2018-01-12 14:32:10' WHERE `users`.`id` = 2
+  [1m[36m (3.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT  `roles`.* FROM `roles` WHERE (name = 'administrator' and authorizable_type IS NULL and authorizable_id IS NULL)  ORDER BY `roles`.`id` ASC LIMIT 1
+  [1m[36mRole Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 2 AND `roles`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT SUM(`purchase_infos`.`item_price`) FROM `purchase_infos`
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM(`purchase_infos`.`purchase_count`) FROM `purchase_infos`[0m
+  [1m[35mPurchaseInfo Load (0.1ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  Rendered purchase_infos/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 48ms (Views: 38.9ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:32:11 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:32:11 -0200
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:32:11 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:32:11 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:32:11 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:32:11 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:32:11 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:32:11 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:32:11 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:32:11 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:32:11 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:32:11 -0200
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 12:32:21 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2018-01-12 14:32:21', `perishable_token` = 'MUY3wRhN6JsHvGsEGdl', `updated_at` = '2018-01-12 14:32:21' WHERE `users`.`id` = 2[0m
+  [1m[35m (3.1ms)[0m  COMMIT
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT  `roles`.* FROM `roles` WHERE (name = 'administrator' and authorizable_type IS NULL and authorizable_id IS NULL)  ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  [1m[35mRole Exists (0.2ms)[0m  SELECT  1 AS one FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 2 AND `roles`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM(`purchase_infos`.`item_price`) FROM `purchase_infos`[0m
+  [1m[35m (0.1ms)[0m  SELECT SUM(`purchase_infos`.`purchase_count`) FROM `purchase_infos`
+  [1m[36mPurchaseInfo Load (0.1ms)[0m  [1mSELECT `purchase_infos`.* FROM `purchase_infos`[0m
+  Rendered purchase_infos/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 45ms (Views: 35.7ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:32:21 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:32:21 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:32:21 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:32:21 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:32:21 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:32:21 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:32:21 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:32:21 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:32:21 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:32:21 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:32:21 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:32:21 -0200
+
+
+Started GET "/purchase_infos/new" for 127.0.0.1 at 2018-01-12 12:32:23 -0200
+Processing by PurchaseInfosController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `last_request_at` = '2018-01-12 14:32:23', `perishable_token` = '0C1EZepKEmyHUYbNkf', `updated_at` = '2018-01-12 14:32:23' WHERE `users`.`id` = 2
+  [1m[36m (5.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (0.2ms)[0m  SELECT  `roles`.* FROM `roles` WHERE (name = 'administrator' and authorizable_type IS NULL and authorizable_id IS NULL)  ORDER BY `roles`.`id` ASC LIMIT 1
+  [1m[36mRole Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 2 AND `roles`.`id` = 1 LIMIT 1[0m
+  Rendered purchase_infos/_form.html.erb (3.4ms)
+  Rendered purchase_infos/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 58ms (Views: 45.3ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/purchase_infos" for 127.0.0.1 at 2018-01-12 12:32:24 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `last_request_at` = '2018-01-12 14:32:24', `perishable_token` = '6RuDjRjpllqiia5N4FQ', `updated_at` = '2018-01-12 14:32:24' WHERE `users`.`id` = 2
+  [1m[36m (4.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT  `roles`.* FROM `roles` WHERE (name = 'administrator' and authorizable_type IS NULL and authorizable_id IS NULL)  ORDER BY `roles`.`id` ASC LIMIT 1
+  [1m[36mRole Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 2 AND `roles`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT SUM(`purchase_infos`.`item_price`) FROM `purchase_infos`
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM(`purchase_infos`.`purchase_count`) FROM `purchase_infos`[0m
+  [1m[35mPurchaseInfo Load (0.1ms)[0m  SELECT `purchase_infos`.* FROM `purchase_infos`
+  Rendered purchase_infos/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 53ms (Views: 41.1ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2018-01-12 12:32:26 -0200
+Processing by UserSessionsController#destroy as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2018-01-12 14:32:26', `perishable_token` = 'zcpFGJvvT3qZmWkCXUY', `updated_at` = '2018-01-12 14:32:26' WHERE `users`.`id` = 2[0m
+  [1m[35m (3.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/user_session/new
+Completed 302 Found in 10ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/user_session/new" for 127.0.0.1 at 2018-01-12 12:32:26 -0200
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (0.5ms)
+  Rendered user_sessions/new.html.erb within layouts/login (1.0ms)
+Completed 200 OK in 31ms (Views: 30.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:32:26 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:32:26 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:32:26 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:32:26 -0200
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:32:26 -0200
+
+
+Started GET "/user_session/new" for 127.0.0.1 at 2018-01-12 12:33:01 -0200
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (1.3ms)
+  Rendered user_sessions/new.html.erb within layouts/login (1.8ms)
+Completed 200 OK in 31ms (Views: 30.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:33:01 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:33:01 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:33:01 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:33:01 -0200
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:33:01 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:33:01 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:33:01 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:33:01 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:33:01 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:33:01 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:33:01 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:33:01 -0200
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-01-12 12:33:29 -0200
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (0.8ms)
+  Rendered users/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 52ms (Views: 50.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:33:29 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:33:29 -0200
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:33:29 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:33:29 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:33:29 -0200
+
+
+Started GET "/user_session/new" for 127.0.0.1 at 2018-01-12 12:34:52 -0200
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (0.6ms)
+  Rendered user_sessions/new.html.erb within layouts/login (1.0ms)
+Completed 200 OK in 41ms (Views: 39.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_session" for 127.0.0.1 at 2018-01-12 12:34:53 -0200
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Cel0Zn3Og+IFwkv0S6emZ61BqAVP6OhcQ8JV7u6pbVeI/QDtkaZxz8w2XWwxSHcH9E8jtZry2AYUmClWY72sdQ==", "user"=>{"login"=>"lucas", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`login` = 'lucas'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE `users` SET `login_count` = 5, `last_login_at` = '2018-01-12 14:31:56', `current_login_at` = '2018-01-12 14:34:53', `last_request_at` = '2018-01-12 14:34:53', `perishable_token` = '4Jr8UFy2AWSlJPpSe4Z', `updated_at` = '2018-01-12 14:34:53' WHERE `users`.`id` = 2[0m
+  [1m[35m (2.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 122ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 12:34:53 -0200
+Processing by PurchaseInfosController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE `users` SET `last_request_at` = '2018-01-12 14:34:53', `perishable_token` = 'CYYHTFoyKUXJ69oAiagF', `updated_at` = '2018-01-12 14:34:53' WHERE `users`.`id` = 2[0m
+  [1m[35m (1.5ms)[0m  COMMIT
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT  `roles`.* FROM `roles` WHERE (name = 'administrator' and authorizable_type IS NULL and authorizable_id IS NULL)  ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  [1m[35mRole Exists (0.1ms)[0m  SELECT  1 AS one FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 2 AND `roles`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT SUM(`purchase_infos`.`item_price`) FROM `purchase_infos`[0m
+  [1m[35m (0.1ms)[0m  SELECT SUM(`purchase_infos`.`purchase_count`) FROM `purchase_infos`
+  [1m[36mPurchaseInfo Load (0.1ms)[0m  [1mSELECT `purchase_infos`.* FROM `purchase_infos`[0m
+  Rendered purchase_infos/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 49ms (Views: 41.8ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2018-01-12 12:34:53 -0200
+
+
+Started GET "/assets/purchase_infos.css?body=1" for 127.0.0.1 at 2018-01-12 12:34:53 -0200
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2018-01-12 12:34:53 -0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2018-01-12 12:34:53 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2018-01-12 12:34:53 -0200
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2018-01-12 12:34:53 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2018-01-12 12:34:53 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2018-01-12 12:34:53 -0200
+
+
+Started GET "/assets/bootstrap-filestyle.js?body=1" for 127.0.0.1 at 2018-01-12 12:34:53 -0200
+
+
+Started GET "/assets/functions.js?body=1" for 127.0.0.1 at 2018-01-12 12:34:53 -0200
+
+
+Started GET "/assets/purchase_infos.js?body=1" for 127.0.0.1 at 2018-01-12 12:34:53 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2018-01-12 12:34:53 -0200

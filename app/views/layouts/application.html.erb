@@ -10,21 +10,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
 <%= yield %>
   <%= javascript_include_tag "https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js" %>
   <%= javascript_include_tag "bootstrap-filestyle" %>
-  <%= javascript_include_tag "functions" %>
-  <script>
-
-    $(window).load(function() {
-      $(window).resize();
-    });
-
-    $(window).resize(function() {
-      resize_layout();
-    });
-
-  </script>
 </body>
 </html>
